@@ -14,7 +14,7 @@ type AuthContext = {
   token: string | null;
   user: User | null;
   login: (email: string, password: string) => void;
-  signup: (email: string, password: string) => void;
+  signup: (email: string, password: string, link: string) => void;
   logout: () => void;
 };
 
@@ -44,8 +44,8 @@ const useAuthProvider = () => {
     });
   };
 
-  const signup = (email: string, password: string) => {
-    authFetcher.signup(email, password).then((response) => {
+  const signup = (email: string, password: string, link: string) => {
+    authFetcher.signup(email, password, link).then((response) => {
       const token = response.headers.authorization;
       Cookies.set("token", token);
       setToken(token);

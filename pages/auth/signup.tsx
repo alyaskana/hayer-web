@@ -5,6 +5,7 @@ import { useAuth } from "@shared/hooks";
 type FormInputs = {
   email: string;
   password: string;
+  link: string;
 };
 
 const SignupPage: NextPage = () => {
@@ -13,7 +14,7 @@ const SignupPage: NextPage = () => {
   const { handleSubmit, control } = useForm<FormInputs>({ mode: "onChange" });
 
   const onSubmit: SubmitHandler<FormInputs> = (data) => {
-    signup(data.email, data.password);
+    signup(data.email, data.password, data.link);
   };
 
   return (
@@ -33,6 +34,16 @@ const SignupPage: NextPage = () => {
           defaultValue="123456"
           render={({ field }) => (
             <input placeholder="Password" type="password" {...field} />
+          )}
+        />
+      </div>
+      <div>
+        <Controller
+          name="link"
+          control={control}
+          defaultValue=""
+          render={({ field }) => (
+            <input placeholder="@username" type="text" {...field} />
           )}
         />
       </div>
