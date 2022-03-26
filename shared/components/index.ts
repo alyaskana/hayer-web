@@ -5,6 +5,7 @@ export { Button } from "./Button/Button";
 export { Layout } from "./Layout/Layout";
 export { Header } from "./Header/Header";
 export { Footer } from "./Footer/Footer";
+export { Avatar } from "./Avatar/Avatar";
 export { InnerLink } from "./links/InnerLink";
 export { ExternalLink } from "./links/ExternalLink";
 export {

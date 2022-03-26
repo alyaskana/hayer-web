@@ -6,7 +6,7 @@ export type User = {
   last_name: string;
   about: string;
   interests: string[];
-  avatar: string | null | undefined;
+  avatar: string | null;
   link: string;
   email: string;
   personal_email: string;

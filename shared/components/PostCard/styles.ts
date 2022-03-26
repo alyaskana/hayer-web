@@ -6,6 +6,7 @@ import {
   Title,
   Caption_2,
 } from "@shared/components/Typography/Typography";
+import { Avatar } from "@shared/components/Avatar/Avatar";
 
 export const PostWrap = styled.div`
   background-color: ${Colors.Main.White};
@@ -64,9 +65,9 @@ export const UserInfo = styled.div`
   align-items: center;
 `;
 
-export const UserAvatar = styled.img`
-  width: 32px;
-  height: 32px;
+export const UserAvatar = styled(Avatar)`
+  /* width: 32px;
+  height: 32px; */
   margin-right: 8px;
 `;
 
