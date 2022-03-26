@@ -1,11 +1,11 @@
-import React from "react";
+import { FC } from "react";
 import Link from "next/link";
 import { Wrap, Logo, LogoIcon, LogoTitle, Menu, StyledLink } from "./styles";
 import { Button } from "@shared/components";
 
-export const Header = () => {
+export const Header: FC<{ className?: string }> = ({ className }) => {
   return (
-    <Wrap>
+    <Wrap className={className}>
       <Link href={"/posts"} passHref>
         <Logo>
           <LogoIcon></LogoIcon>

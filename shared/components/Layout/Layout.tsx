@@ -1,11 +1,13 @@
 import { FC } from "react";
-import { Header } from "@shared/components";
+import { Footer } from "@shared/components";
+import { Main, Wrap, StyledHeader } from "./styles";
 
 export const Layout: FC = ({ children }) => {
   return (
-    <div>
-      <Header />
-      <main>{children}</main>
-    </div>
+    <Wrap>
+      <StyledHeader />
+      <Main>{children}</Main>
+      <Footer />
+    </Wrap>
   );
 };
