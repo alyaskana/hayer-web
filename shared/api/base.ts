@@ -1,9 +1,26 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig, AxiosError } from "axios";
+import Cookies from "js-cookie";
 
 import { stringify } from "./utils/stringify";
 
 const fetcher = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_HOST,
+  baseURL: process.env.NEXT_PUBLIC_API_HOST,
+});
+
+fetcher.interceptors.request.use(function (config) {
+  const token = Cookies.get("token");
+  if (token) {
+    return { ...config, headers: { ...config.headers, Authorization: token } };
+  }
+  return config;
+});
+
+fetcher.interceptors.response.use(undefined, async (error: AxiosError) => {
+  if (error.response?.status == 401) {
+    window.location.href = "/auth/login";
+  }
+
+  return Promise.reject(error);
 });
 
 type TGetParams = {
@@ -15,7 +32,7 @@ type TGetParams = {
 type TPostParams = {
   path: string;
   params?: Record<string, string | number | unknown> | FormData;
-  headers?: Record<string, string | true>;
+  headers?: AxiosRequestConfig<any>;
 };
 
 export class API {

@@ -1,9 +1,14 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+
+import { useAuth } from "@shared/hooks";
+
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
+  const { user, logout } = useAuth();
+
   return (
     <div className={styles.container}>
       <Head>
@@ -13,6 +18,8 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
+        <button onClick={logout}>Log out</button>
+        {JSON.stringify(user)}
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
