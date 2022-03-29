@@ -17,7 +17,6 @@ export const Logo = styled.a`
 `;
 
 export const LogoIcon = styled.div`
-  margin-right: 12px;
   background-color: ${Colors.Main.Primary};
   border-radius: 25px;
   width: 68px;
@@ -25,6 +24,7 @@ export const LogoIcon = styled.div`
 `;
 
 export const LogoTitle = styled.span`
+  margin-left: 12px;
   font-family: "Suisse Intl";
   color: ${Colors.Main.Black};
   font-size: 68px;

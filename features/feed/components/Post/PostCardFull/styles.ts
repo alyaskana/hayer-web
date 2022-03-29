@@ -65,8 +65,6 @@ export const UserInfo = styled.div`
 `;
 
 export const UserAvatar = styled(Avatar)`
-  /* width: 32px;
-  height: 32px; */
   margin-right: 8px;
 `;
 
@@ -75,6 +73,7 @@ export const StyledTag = styled(Tag)`
 `;
 
 export const StyledText = styled(Text)`
+  margin-top: 20px;
   margin-bottom: 24px;
   max-width: 550px;
 `;

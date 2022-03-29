@@ -1,7 +1,8 @@
 import { FC } from "react";
 import Link from "next/link";
-import { Wrap, Logo, LogoIcon, LogoTitle, Menu, StyledLink } from "./styles";
+import { Wrap, Logo, LogoTitle, Menu, StyledLink } from "./styles";
 import { Button } from "@shared/components";
+import LogoIcon from "@assets/logo.svg";
 
 export const Header: FC<{ className?: string }> = ({ className }) => {
   return (
@@ -23,7 +24,7 @@ export const Header: FC<{ className?: string }> = ({ className }) => {
           <StyledLink>Профиль</StyledLink>
         </Link>
       </Menu>
-      <Button href="/post/new" text="Создать объявление" />
+      <Button variant="primary" href="/posts/new" text="Создать объявление" />
     </Wrap>
   );
 };

@@ -9,8 +9,6 @@ type PageProps = NextPage<
 >;
 
 const PostsPage: PageProps = ({ posts }) => {
-  console.log(posts);
-
   return (
     <Layout>
       <Head>

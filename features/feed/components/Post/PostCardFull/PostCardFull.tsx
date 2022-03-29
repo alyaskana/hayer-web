@@ -1,16 +1,13 @@
 import { Colors } from "@shared/constants/Colors";
 import { Post } from "@shared/types";
-import { truncate } from "@shared/utils";
 import { FC } from "react";
-import { Caption_1, Caption_2, Headline } from "../Typography/Typography";
+import { Caption_1, Caption_2 } from "@shared/components";
 import {
   Footer,
   Header,
   HeaderInfo,
   IconCategory,
   PostWrap,
-  ResponseCounter,
-  ResponseIconWrap,
   StyledTag,
   StyledText,
   StyledTitle,
@@ -23,15 +20,15 @@ import ClosedIcon from "assets/icons/closed.svg";
 import WorkActiveIcon from "assets/icons/work_active.svg";
 import StudyActiveIcon from "assets/icons/study_active.svg";
 import EventActiveIcon from "assets/icons/event_active.svg";
-import ResponseIcon from "assets/icons/response.svg";
+import FavoriteIcon from "assets/icons/favorite_unactive.svg";
 import Link from "next/link";
 
-type PostCardProps = {
+type PostCardFullProps = {
   post: Post;
   className?: string;
 };
 
-export const PostCard: FC<PostCardProps> = ({ post, className }) => {
+export const PostCardFull: FC<PostCardFullProps> = ({ post, className }) => {
   return (
     <Link href={`/posts/${post.id}`} passHref>
       <PostWrap className={className}>
@@ -59,12 +56,7 @@ export const PostCard: FC<PostCardProps> = ({ post, className }) => {
             ) : null}
             <StyledCaption_2>{post.format}</StyledCaption_2>
           </HeaderInfo>
-          <ResponseCounter>
-            <ResponseIconWrap>
-              <ResponseIcon />
-            </ResponseIconWrap>
-            <Headline>{post.responses.length}</Headline>
-          </ResponseCounter>
+          <FavoriteIcon />
         </Header>
 
         <StyledTitle>{post.title}</StyledTitle>
@@ -76,7 +68,7 @@ export const PostCard: FC<PostCardProps> = ({ post, className }) => {
           </Tags>
         )}
 
-        <StyledText>{truncate(post.description, 180)}</StyledText>
+        <StyledText>{post.description}</StyledText>
 
         <Footer>
           <UserInfo>
