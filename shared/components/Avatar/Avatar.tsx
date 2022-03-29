@@ -10,7 +10,7 @@ type AvatarProps = {
 export const Avatar: FC<AvatarProps> = ({ src, size = 32, className }) => {
   const imageSrc = src
     ? process.env.NEXT_PUBLIC_API_HOST + src
-    : "./assets/images/default_avatar.png";
+    : "/assets/images/default_avatar.png";
 
   return (
     <StyledImage

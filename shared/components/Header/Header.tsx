@@ -16,10 +16,11 @@ import { Headline } from "../Typography/Typography";
 
 export const Header: FC<{ className?: string }> = ({ className }) => {
   const { token } = useAuth();
+  console.log("++++++", token);
 
   return (
     <Wrap className={className}>
-      <Link href={"/feed"} passHref>
+      <Link href={"/"} passHref>
         <Logo>
           <LogoIcon />
           <LogoTitle>Хайер</LogoTitle>

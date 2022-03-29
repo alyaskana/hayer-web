@@ -28,6 +28,7 @@ export const HeaderInfo = styled.div`
 `;
 
 export const IconCategory = styled.div`
+  height: 32px;
   svg,
   img {
     width: 32px;
