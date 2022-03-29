@@ -44,3 +44,17 @@ export const StyledLink = styled.a`
     color: ${Colors.Main.Gray_3};
   }
 `;
+
+export const AuthLinks = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const AuthLink = styled.a`
+  margin-left: 32px;
+  color: ${Colors.Main.Gray_2};
+  transition: color 0.2s;
+  :hover {
+    color: ${Colors.Main.Gray_3};
+  }
+`;
