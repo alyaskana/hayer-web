@@ -151,7 +151,7 @@ const NewPostPage: NextPage = () => {
             перемещено в архив
           </Caption_3>
         </FieldSet>
-        <Button text="Создать" type="submit" />
+        <Button variant="primary" text="Создать" type="submit" />
       </Form>
     </Layout>
   );

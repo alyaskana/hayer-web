@@ -20,7 +20,7 @@ class PostsFetcher extends API {
   }
 
   create<R = Post>(params: CreatePost) {
-    return super.post<R>({ path: `posts`, params });
+    return super.post<R>({ path: `posts`, params: { post: params } });
   }
 }
 
