@@ -8,7 +8,7 @@ import {
   Input,
   Label,
 } from "@shared/components/form";
-import { Caption_2, Layout } from "@shared/components";
+import { Button, Caption_2, Layout } from "@shared/components";
 
 type FormInputs = {
   email: string;
@@ -52,7 +52,7 @@ const LoginPage: NextPage = () => {
             )}
           />
         </FieldSet>
-        <button type="submit">Sign up</button>
+        <Button variant="bigPrimary" type="submit" text="Войти" />
       </Form>
     </Layout>
   );
