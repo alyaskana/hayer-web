@@ -1,7 +1,11 @@
+import { FC } from "react";
+import Link from "next/link";
+import { formatRelative } from "date-fns";
+import russianLocale from "date-fns/locale/ru";
+
 import { Colors } from "@shared/constants/Colors";
 import { Post } from "@shared/types";
 import { truncate } from "@shared/utils";
-import { FC } from "react";
 import { Caption_1, Caption_2, Headline } from "../Typography/Typography";
 import {
   Footer,
@@ -19,12 +23,12 @@ import {
   UserAvatar,
   UserInfo,
 } from "./styles";
+
 import ClosedIcon from "assets/icons/closed.svg";
 import WorkActiveIcon from "assets/icons/work_active.svg";
 import StudyActiveIcon from "assets/icons/study_active.svg";
 import EventActiveIcon from "assets/icons/event_active.svg";
 import ResponseIcon from "assets/icons/response.svg";
-import Link from "next/link";
 
 type PostCardProps = {
   post: Post;
@@ -85,7 +89,11 @@ export const PostCard: FC<PostCardProps> = ({ post, className }) => {
               {post.user.first_name} {post.user.last_name}
             </Caption_1>
           </UserInfo>
-          <Caption_2 color={Colors.Main.Gray_1}>4 часа назад</Caption_2>
+          <Caption_2 color={Colors.Main.Gray_1}>
+            {formatRelative(new Date(post.created_at), new Date(), {
+              locale: russianLocale,
+            })}
+          </Caption_2>
         </Footer>
       </PostWrap>
     </Link>

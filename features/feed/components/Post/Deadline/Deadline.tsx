@@ -1,9 +1,14 @@
+import { FC } from "react";
+import { differenceInCalendarDays } from "date-fns";
+
 import { Colors } from "@shared/constants/Colors";
 import { Title } from "@shared/components";
+import { pluralize } from "@shared/utils";
+
 import { Icon, Wrap, StyledHeadline } from "./styles";
+
 import TimeIcon from "@assets/icons/time.svg";
 import ClosedIcon from "@assets/icons/closed.svg";
-import { FC } from "react";
 
 export const Deadline: FC<{ date: string }> = ({ date }) => {
   if (new Date(date) > new Date()) {
@@ -14,7 +19,13 @@ export const Deadline: FC<{ date: string }> = ({ date }) => {
         </Icon>
         <div>
           <StyledHeadline color={Colors.Main.Gray_1}>Дедлайн</StyledHeadline>
-          <Title>12 дней</Title>
+          <Title>
+            {pluralize(differenceInCalendarDays(new Date(date), new Date()), [
+              "день",
+              "дня",
+              "дней",
+            ])}
+          </Title>
         </div>
       </Wrap>
     );
