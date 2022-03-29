@@ -4,7 +4,7 @@ import { User } from "./types";
 class AuthFetcher extends API {
   login<R = User>(email: string, password: string) {
     return super.post<R>({
-      path: "api/login",
+      path: "login",
       params: {
         user: {
           email,
@@ -15,7 +15,7 @@ class AuthFetcher extends API {
   }
   signup<R = User>(email: string, password: string, link: string) {
     return super.post<R>({
-      path: "api/signup",
+      path: "signup",
       params: {
         user: {
           email,
@@ -28,7 +28,7 @@ class AuthFetcher extends API {
 
   logout() {
     return super.delete<void>({
-      path: "api/logout",
+      path: "logout",
     });
   }
 }
