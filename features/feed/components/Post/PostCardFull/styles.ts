@@ -28,8 +28,11 @@ export const HeaderInfo = styled.div`
 `;
 
 export const IconCategory = styled.div`
-  width: 32px;
-  height: 32px;
+  svg,
+  img {
+    width: 32px;
+    height: 32px;
+  }
   margin-right: 4px;
 `;
 
