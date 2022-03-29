@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import type { NextPage } from "next";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 
@@ -15,6 +16,7 @@ import {
   RadioButton,
 } from "@shared/components/form";
 import { Button, Caption_2, Caption_3, Layout } from "@shared/components";
+import { postsFetcher } from "@shared/api";
 
 import WorkActiveIcon from "assets/icons/work_active.svg";
 import StudyActiveIcon from "assets/icons/study_active.svg";
@@ -30,10 +32,13 @@ type FormInputs = {
 };
 
 const NewPostPage: NextPage = () => {
+  const router = useRouter();
   const { handleSubmit, control } = useForm<FormInputs>({ mode: "onChange" });
 
   const onSubmit: SubmitHandler<FormInputs> = (data) => {
-    console.log(data);
+    postsFetcher.create(data).then(({ data }) => {
+      router.push(`/posts/${data.id}`);
+    });
   };
 
   return (
