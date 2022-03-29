@@ -7,7 +7,7 @@ export const Layout: FC = ({ children }) => {
     <Wrap>
       <StyledHeader />
       <Main>{children}</Main>
-      <Footer />
+      {/* <Footer /> */}
     </Wrap>
   );
 };

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Colors } from "@shared/constants/Colors";
 import { Headline } from "@shared/components/Typography/Typography";
 
-export const StyledLink = styled.a`
+export const StyledButton = styled.button`
   padding: 30px 56px;
   background-color: ${Colors.Main.Primary};
   border-radius: 90px;
@@ -10,6 +10,8 @@ export const StyledLink = styled.a`
   display: flex;
   gap: 8px;
   align-items: center;
+  outline: none;
+  border: none;
 
   :hover {
     background-color: ${Colors.Main.PrimaryHover};

@@ -1,6 +1,5 @@
 import { Dispatch, FC, SetStateAction } from "react";
-import { Caption_1 } from "@shared/components/Typography/Typography";
-import { Button, Icon } from "./styles";
+import { Button, Icon, StyledCaption_1 } from "./styles";
 import { Colors } from "@shared/constants/Colors";
 
 type FilterProps = {
@@ -30,7 +29,7 @@ export const Filter: FC<FilterProps> = ({
     <div onClick={handleFilterPress}>
       <Button>
         <Icon src={iconPath} />
-        <Caption_1 style={{ color: Colors.Main.Gray_2 }}>{text}</Caption_1>
+        <StyledCaption_1>{text}</StyledCaption_1>
       </Button>
     </div>
   );

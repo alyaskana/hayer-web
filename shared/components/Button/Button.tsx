@@ -1,27 +1,34 @@
 import { FC, ReactElement } from "react";
 
 import { InnerLink } from "@shared/components";
-import { StyledLink, StyledHeadline } from "./styles";
+import { StyledButton, StyledHeadline } from "./styles";
 
 type ButtonProps = {
   href?: string;
   onClick?: () => void;
   text?: string;
   icon?: ReactElement;
+  type?: "button" | "submit" | "reset";
 };
 
-type BaseButtonProps = Pick<ButtonProps, "icon" | "text">;
+type BaseButtonProps = Pick<ButtonProps, "icon" | "text" | "type" | "onClick">;
 
-const BaseButton: FC<BaseButtonProps> = ({ text, icon }) => {
+const BaseButton: FC<BaseButtonProps> = ({ text, icon, type }) => {
   return (
-    <StyledLink>
+    <StyledButton type={type}>
       {icon}
       {text && <StyledHeadline>{text}</StyledHeadline>}
-    </StyledLink>
+    </StyledButton>
   );
 };
 
-export const Button: FC<ButtonProps> = ({ href, text, onClick, icon }) => {
+export const Button: FC<ButtonProps> = ({
+  href,
+  text,
+  onClick,
+  icon,
+  type = "button",
+}) => {
   if (href) {
     return (
       <InnerLink prefetch href={href} passHref>
@@ -29,10 +36,6 @@ export const Button: FC<ButtonProps> = ({ href, text, onClick, icon }) => {
       </InnerLink>
     );
   } else {
-    return (
-      <button type="button" onClick={onClick}>
-        <BaseButton text={text} icon={icon} />
-      </button>
-    );
+    return <BaseButton text={text} icon={icon} type={type} onClick={onClick} />;
   }
 };

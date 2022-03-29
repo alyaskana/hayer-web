@@ -1,5 +1,6 @@
 import { Response } from "./response";
 import { Tag } from "./tag";
+import { AdType } from "./ad_type";
 import { UserShort } from "./user";
 
 export type Post = {

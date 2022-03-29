@@ -10,6 +10,7 @@ export const Main = styled.main`
 export const Wrap = styled.div`
   padding: 0 20px;
   background-color: ${Colors.Main.White_gray};
+  min-height: 100vh;
 `;
 
 export const StyledHeader = styled(Header)`

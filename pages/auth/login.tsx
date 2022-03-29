@@ -1,6 +1,14 @@
 import type { NextPage } from "next";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { useAuth } from "@shared/hooks";
+import {
+  FieldSet,
+  Form,
+  FormTitle,
+  Input,
+  Label,
+} from "@shared/components/form";
+import { Caption_2, Layout } from "@shared/components";
 
 type FormInputs = {
   email: string;
@@ -17,27 +25,36 @@ const LoginPage: NextPage = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <Controller
-          name="email"
-          control={control}
-          defaultValue="aabychkova_4@edu.hse.ru"
-          render={({ field }) => <input placeholder="Email" {...field} />}
-        />
-      </div>
-      <div>
-        <Controller
-          name="password"
-          control={control}
-          defaultValue="123456"
-          render={({ field }) => (
-            <input placeholder="Password" type="password" {...field} />
-          )}
-        />
-      </div>
-      <button type="submit">Log in</button>
-    </form>
+    <Layout>
+      <FormTitle>Вход</FormTitle>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <FieldSet>
+          <Label>
+            <Caption_2>Email</Caption_2>
+          </Label>
+          <Controller
+            name="email"
+            control={control}
+            render={({ field }) => (
+              <Input placeholder="example@edu.hse.ru" {...field} />
+            )}
+          />
+        </FieldSet>
+        <FieldSet>
+          <Label>
+            <Caption_2>Пароль</Caption_2>
+          </Label>
+          <Controller
+            name="password"
+            control={control}
+            render={({ field }) => (
+              <Input placeholder="******" type="password" {...field} />
+            )}
+          />
+        </FieldSet>
+        <button type="submit">Sign up</button>
+      </Form>
+    </Layout>
   );
 };
 

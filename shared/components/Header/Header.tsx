@@ -6,9 +6,9 @@ import { Button } from "@shared/components";
 export const Header: FC<{ className?: string }> = ({ className }) => {
   return (
     <Wrap className={className}>
-      <Link href={"/posts"} passHref>
+      <Link href={"/feed"} passHref>
         <Logo>
-          <LogoIcon></LogoIcon>
+          <LogoIcon />
           <LogoTitle>Хайер</LogoTitle>
         </Logo>
       </Link>
@@ -23,7 +23,7 @@ export const Header: FC<{ className?: string }> = ({ className }) => {
           <StyledLink>Профиль</StyledLink>
         </Link>
       </Menu>
-      <Button href="/posts/new" text="Создать объявление" />
+      <Button href="/post/new" text="Создать объявление" />
     </Wrap>
   );
 };

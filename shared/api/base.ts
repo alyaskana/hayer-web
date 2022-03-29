@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import { stringify } from "./utils/stringify";
 
 const fetcher = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_HOST,
+  baseURL: process.env.NEXT_PUBLIC_API_HOST + "/api",
 });
 
 fetcher.interceptors.request.use(function (config) {
