@@ -108,7 +108,7 @@ const NewPostPage: NextPage = () => {
           />
         </FieldSet>
 
-        <FieldSet>
+        {/* <FieldSet>
           <Label>
             <Caption_2>Тэги</Caption_2>
           </Label>
@@ -116,7 +116,7 @@ const NewPostPage: NextPage = () => {
             На основе выбранных вами тегов, пользователи смогут быстрее
             соорентироваться, подходит ли им ваще объявление
           </Caption_3>
-        </FieldSet>
+        </FieldSet> */}
 
         <FieldSet>
           <Label>
