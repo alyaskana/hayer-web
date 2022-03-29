@@ -6,3 +6,5 @@ export { FieldSet } from "./FieldSet/FieldSet";
 export { Label } from "./Label/Label";
 export { Input } from "./Input/Input";
 export { FormTitle } from "./FormTitle/FormTitle";
+export { TypeCheckBox } from "./TypeCheckBox/TypeCheckBox";
+export { RadioButton } from "./RadioButton/RadioButton";

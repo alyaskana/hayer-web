@@ -8,7 +8,7 @@ export const Colors = {
     White: "#FFFFFF",
     Primary: "#1C63EC",
     PrimaryHover: "#257AF3",
-    PrimaryPressed: "#0F55EA"
+    PrimaryPressed: "#0F55EA",
   },
   Accent: {
     Blue: "#18A0FB",
@@ -17,6 +17,6 @@ export const Colors = {
     Green_white: "#CCF3E2",
     Yellow: "#FCB22B",
     Yellow_white: "#FEE8BF",
-    Red: "#FA4D22"
-  }
-}
+    Red: "#FA4D22",
+  },
+};

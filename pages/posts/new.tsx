@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
-import { AdType } from "@shared/types";
+
+import { Colors } from "@shared/constants/Colors";
 import { Tag } from "@shared/types";
 import {
   FieldSet,
@@ -10,13 +11,19 @@ import {
   Label,
   TextArea,
   TitleInput,
+  TypeCheckBox,
+  RadioButton,
 } from "@shared/components/form";
 import { Button, Caption_2, Caption_3, Layout } from "@shared/components";
+
+import WorkActiveIcon from "assets/icons/work_active.svg";
+import StudyActiveIcon from "assets/icons/study_active.svg";
+import EventActiveIcon from "assets/icons/event_active.svg";
 
 type FormInputs = {
   title: string;
   description: string;
-  ad_types: AdType[];
+  ad_types: string[];
   format: string;
   deadline: string;
   tags: Tag[];
@@ -63,13 +70,37 @@ const NewPostPage: NextPage = () => {
           <Label>
             <Caption_2>Тип (выберите один или несколько)</Caption_2>
           </Label>
-          {/* <Controller
-            name="ad_types"
+          <TypeCheckBox
             control={control}
-            render={({ field }) => (
-              <select value={}  {...field} />
-            )}
-          /> */}
+            name="ad_types"
+            type="work"
+            title="Работа"
+            description="С финансовым вознаграждением"
+            icon={<WorkActiveIcon />}
+            backgroundColor={Colors.Accent.Green_white}
+            checkMarkColor={Colors.Accent.Green}
+          />
+          <TypeCheckBox
+            control={control}
+            name="ad_types"
+            type="study"
+            icon={<StudyActiveIcon />}
+            title="Учеба"
+            description="Все, что внутри Вышки"
+            backgroundColor={Colors.Accent.Blue_white}
+            checkMarkColor={Colors.Accent.Blue}
+          />
+
+          <TypeCheckBox
+            control={control}
+            name="ad_types"
+            type="events"
+            icon={<EventActiveIcon />}
+            title="Ивенты"
+            description="Мероприятия, вечеринки, пиво"
+            backgroundColor={Colors.Accent.Yellow_white}
+            checkMarkColor={Colors.Accent.Yellow}
+          />
         </FieldSet>
 
         <FieldSet>
@@ -82,6 +113,24 @@ const NewPostPage: NextPage = () => {
           </Caption_3>
         </FieldSet>
 
+        <FieldSet>
+          <Label>
+            <Caption_2>Формат</Caption_2>
+          </Label>
+          <RadioButton label="Онлайн" value="online" control={control} />
+          <RadioButton label="Москва" value="moscow" control={control} />
+          <RadioButton
+            label="Санкт-Петербург"
+            value="st_petersburg"
+            control={control}
+          />
+          <RadioButton
+            label="Нижний Новгород"
+            value="nizhny_novgorod"
+            control={control}
+          />
+          <RadioButton label="Пермь" value="perm" control={control} />
+        </FieldSet>
         <FieldSet>
           <Label>
             <Caption_2>Дедлайн</Caption_2>
