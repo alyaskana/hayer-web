@@ -12,7 +12,7 @@ import {
 import { Button } from "@shared/components";
 import LogoIcon from "@assets/logo.svg";
 import { useAuth } from "@shared/hooks";
-import { Headline } from "../Typography/Typography";
+import { Headline } from "@shared/components";
 
 export const Header: FC<{ className?: string }> = ({ className }) => {
   const { token } = useAuth();

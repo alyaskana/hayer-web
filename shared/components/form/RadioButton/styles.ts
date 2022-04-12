@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import CheckMark from "@assets/icons/check_mark.svg";
 import { Colors } from "@shared/constants/Colors";
 
 export const RadioButtonWrap = styled.div`

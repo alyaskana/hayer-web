@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const FilterGroup = styled.div`
-  width: 100%;
+  width: fit-content;
   display: flex;
-  flex-direction: row;
-  margin-bottom: 8px;
-  margin-top: 5px;
+  margin: 0 auto 16px;
+  & > * {
+    margin-right: 4px;
+  }
 `;

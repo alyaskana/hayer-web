@@ -26,11 +26,9 @@ export const Filter: FC<FilterProps> = ({
   };
 
   return (
-    <div onClick={handleFilterPress}>
-      <Button>
-        <Icon src={iconPath} />
-        <StyledCaption_1>{text}</StyledCaption_1>
-      </Button>
-    </div>
+    <Button onClick={handleFilterPress}>
+      <Icon src={iconPath} />
+      <StyledCaption_1>{text}</StyledCaption_1>
+    </Button>
   );
 };

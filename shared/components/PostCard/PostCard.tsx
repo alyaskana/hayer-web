@@ -24,11 +24,11 @@ import {
   UserInfo,
 } from "./styles";
 
-import ClosedIcon from "assets/icons/closed.svg";
-import WorkActiveIcon from "assets/icons/work_active.svg";
-import StudyActiveIcon from "assets/icons/study_active.svg";
-import EventActiveIcon from "assets/icons/event_active.svg";
-import ResponseIcon from "assets/icons/response.svg";
+import ClosedIcon from "@assets/icons/closed.svg";
+import WorkActiveIcon from "@assets/icons/work_active.svg";
+import StudyActiveIcon from "@assets/icons/study_active.svg";
+import EventActiveIcon from "@assets/icons/event_active.svg";
+import ResponseIcon from "@assets/icons/response.svg";
 
 type PostCardProps = {
   post: Post;

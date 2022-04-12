@@ -2,14 +2,16 @@ import styled from "styled-components";
 import { Colors } from "@shared/constants/Colors";
 import { Caption_1 } from "@shared/components/Typography/Typography";
 
-export const Button = styled.div`
+export const Button = styled.button`
   display: flex;
-  flex-direction: row;
   align-items: center;
   background-color: ${Colors.Main.White};
-  border-radius: 20;
+  border-radius: 20px;
   padding: 4px;
+  width: 117px;
   color: ${Colors.Main.Gray_2};
+  border: none;
+  cursor: pointer;
 `;
 
 export const Icon = styled.img`

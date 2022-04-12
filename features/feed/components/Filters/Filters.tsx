@@ -17,45 +17,39 @@ export const Filters: FC<FitersProps> = ({
 
   return (
     <FilterGroup>
-      <View style={{ marginRight: 4, flex: 1 }}>
-        <Filter
-          onPress={setActiveFilters}
-          iconPath={
-            isActive("work")
-              ? require("~/assets/images/work_active.png")
-              : require("~/assets/images/work_unactive.png")
-          }
-          text="Работа"
-          type="work"
-          isActive={isActive("work")}
-        />
-      </View>
-      <View style={{ marginRight: 4, flex: 1 }}>
-        <Filter
-          onPress={setActiveFilters}
-          iconPath={
-            isActive("study")
-              ? require("~/assets/images/study_active.png")
-              : require("~/assets/images/study_unactive.png")
-          }
-          text="Учеба"
-          type="study"
-          isActive={isActive("study")}
-        />
-      </View>
-      <View style={{ flex: 1 }}>
-        <Filter
-          onPress={setActiveFilters}
-          iconPath={
-            isActive("event")
-              ? require("~/assets/images/event_active.png")
-              : require("~/assets/images/event_unactive.png")
-          }
-          text="Ивенты"
-          type="event"
-          isActive={isActive("event")}
-        />
-      </View>
+      <Filter
+        onPress={setActiveFilters}
+        iconPath={
+          isActive("work")
+            ? "/assets/icons/work_active.svg"
+            : "/assets/icons/work_unactive.svg"
+        }
+        text="Работа"
+        type="work"
+        isActive={isActive("work")}
+      />
+      <Filter
+        onPress={setActiveFilters}
+        iconPath={
+          isActive("study")
+            ? "/assets/icons/study_active.svg"
+            : "/assets/icons/study_unactive.svg"
+        }
+        text="Учеба"
+        type="study"
+        isActive={isActive("study")}
+      />
+      <Filter
+        onPress={setActiveFilters}
+        iconPath={
+          isActive("event")
+            ? "/assets/icons/event_active.svg"
+            : "/assets/icons/event_unactive.svg"
+        }
+        text="Ивенты"
+        type="event"
+        isActive={isActive("event")}
+      />
     </FilterGroup>
   );
 };
