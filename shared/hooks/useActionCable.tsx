@@ -6,10 +6,10 @@ import React, {
   useEffect,
 } from "react";
 
-import actionCableRails from "actioncable";
+import actionCableRails from "@rails/actioncable";
 
 const actionCable: typeof actionCableRails =
-  typeof window !== "undefined" ? require("actioncable") : null;
+  typeof window !== "undefined" ? require("@rails/actioncable") : null;
 
 type ActionCableContext = {
   cable: actionCableRails.Cable | null;

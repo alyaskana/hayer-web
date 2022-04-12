@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import intersection from "lodash/intersection";
 import type { NextPage, InferGetServerSidePropsType } from "next";
 import Head from "next/head";
-import actionCable from "actioncable";
 
 import { postsFetcher } from "@shared/api";
 import { Layout } from "@shared/components";
