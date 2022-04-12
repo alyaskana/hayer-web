@@ -11,7 +11,7 @@ import TimeIcon from "@assets/icons/time.svg";
 import ClosedIcon from "@assets/icons/closed.svg";
 
 export const Deadline: FC<{ date: string }> = ({ date }) => {
-  if (new Date(date) > new Date()) {
+  if (new Date(date) >= new Date()) {
     const deadline = pluralize(
       differenceInCalendarDays(new Date(date), new Date()),
       ["день", "дня", "дней"]
