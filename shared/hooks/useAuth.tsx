@@ -63,7 +63,9 @@ const useAuthProvider = () => {
   };
 
   useEffect(() => {
-    if (Cookies.get("token")) {
+    const cookiesToken = Cookies.get("token");
+    if (cookiesToken) {
+      setToken(cookiesToken);
       usersFetcher.profile().then((response) => {
         setUser(response.data);
       });
