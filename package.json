@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/lodash": "^4.14.181",
+    "actioncable": "^5.2.7",
     "axios": "^0.26.1",
     "date-fns": "^2.28.0",
     "js-cookie": "^3.0.1",
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^6.2.1",
+    "@types/actioncable": "^5.2.7",
     "@types/js-cookie": "^3.0.1",
     "@types/node": "17.0.22",
     "@types/react": "17.0.41",
