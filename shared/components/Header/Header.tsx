@@ -16,7 +16,6 @@ import { Headline } from "@shared/components";
 
 export const Header: FC<{ className?: string }> = ({ className }) => {
   const { token } = useAuth();
-  console.log("++++++", token);
 
   return (
     <Wrap className={className}>

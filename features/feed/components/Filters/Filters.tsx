@@ -42,13 +42,13 @@ export const Filters: FC<FitersProps> = ({
       <Filter
         onPress={setActiveFilters}
         iconPath={
-          isActive("event")
+          isActive("events")
             ? "/assets/icons/event_active.svg"
             : "/assets/icons/event_unactive.svg"
         }
         text="Ивенты"
-        type="event"
-        isActive={isActive("event")}
+        type="events"
+        isActive={isActive("events")}
       />
     </FilterGroup>
   );

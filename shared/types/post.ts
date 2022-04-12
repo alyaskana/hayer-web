@@ -8,12 +8,7 @@ export type Post = {
   user: UserShort;
   title: string;
   description: string;
-  ad_types: {
-    name: string;
-    id: number;
-    created_at: string;
-    updated_at: string;
-  }[];
+  ad_types: AdType[];
   format: string;
   deadline: string;
   tags: Tag[];

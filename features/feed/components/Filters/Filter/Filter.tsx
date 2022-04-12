@@ -6,7 +6,7 @@ type FilterProps = {
   onPress: Dispatch<SetStateAction<string[]>>;
   iconPath: string;
   text: string;
-  type: "work" | "study" | "event";
+  type: "work" | "study" | "events";
   isActive: boolean;
 };
 
