@@ -18,9 +18,20 @@ type ActionCableContext = {
 const actionCableContext = createContext<ActionCableContext>(null!);
 
 export const ActionCableProvider: FC = ({ children }) => {
-  const state = useActionCableProvider();
+  const [cable, setCable] = useState<actionCableRails.Cable | null>(null);
+
+  useEffect(() => {
+    if (actionCable && !cable) {
+      setCable(actionCable.createConsumer(process.env.NEXT_PUBLIC_WS_HOST!));
+    }
+
+    return () => {
+      cable && cable.disconnect();
+    };
+  }, []);
+
   return (
-    <actionCableContext.Provider value={state}>
+    <actionCableContext.Provider value={{ cable }}>
       {children}
     </actionCableContext.Provider>
   );
@@ -28,20 +39,6 @@ export const ActionCableProvider: FC = ({ children }) => {
 
 export const useActionCable = () => {
   return useContext(actionCableContext);
-};
-
-const useActionCableProvider = () => {
-  const [cable, setCable] = useState<actionCableRails.Cable | null>(null);
-
-  useEffect(() => {
-    if (actionCable) {
-      setCable(actionCable.createConsumer(process.env.NEXT_PUBLIC_WS_HOST!));
-    }
-  }, []);
-
-  return {
-    cable,
-  };
 };
 
 export default ActionCableProvider;

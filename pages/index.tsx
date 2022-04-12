@@ -17,17 +17,15 @@ type PageProps = NextPage<
 
 const PostsPage: PageProps = ({ posts: initialPosts }) => {
   const { cable } = useActionCable();
-  const [posts, setPosts] = useState(initialPosts);
+  const [posts, setPosts] = useState<Post[]>(initialPosts);
   const [filteredPosts, setFilteredPosts] = useState<Post[]>(posts);
+  const [hasNewPosts, setHasNewPosts] = useState(false);
 
   const [activeFilters, setActiveFilters] = useState([
     "study",
     "work",
     "events",
   ]);
-
-  const [hasNewPosts, setHasNewPosts] = useState(false);
-  const [subscription, setSubscription] = useState<actionCable.Channel>();
 
   useEffect(() => {
     const newPosts = posts.filter((post) => {
@@ -40,20 +38,17 @@ const PostsPage: PageProps = ({ posts: initialPosts }) => {
 
   useEffect(() => {
     const handleReceivedMessage = () => {
-      setHasNewPosts(!hasNewPosts);
+      setHasNewPosts(true);
     };
 
-    if (cable) {
-      const newSubscription = cable.subscriptions.create("FeedChannel", {
-        received: () => {
-          handleReceivedMessage();
-        },
-      });
-      setSubscription(newSubscription);
-    }
+    const newSubscription = cable?.subscriptions.create("FeedChannel", {
+      received: () => {
+        handleReceivedMessage();
+      },
+    });
 
     return () => {
-      subscription?.unsubscribe();
+      newSubscription?.unsubscribe();
     };
   }, [cable]);
 
