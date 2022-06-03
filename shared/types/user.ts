@@ -4,18 +4,20 @@ export type User = {
   id: number;
   first_name: string;
   last_name: string;
-  about: string;
-  interests: string[];
+  about: string | null;
   avatar: string | null;
-  link: string;
+  link: string | null;
   email: string;
-  personal_email: string;
   created_at: string;
   updated_at: string;
   followers: User[];
   followings: User[];
   responses: Response[];
-  url: string;
+  url: string | null;
+  instagram: string | null;
+  edu_program: string | null;
+  course: string | null;
+  telegram: string;
 };
 
 export type UserShort = Pick<

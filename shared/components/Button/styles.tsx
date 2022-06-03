@@ -57,10 +57,10 @@ export const SecondaryButton = styled(DefaultButton)`
   padding: 16px;
   min-width: 340px;
   background-color: ${Colors.Main.White_gray};
-  color: ${(props) => (props.danger ? Colors.Accent.Red : Colors.Accent.Blue)};
+  color: ${(props) => (props.danger ? Colors.Accent.Red : Colors.Main.Primary)};
 
   svg {
-    fill: ${Colors.Accent.Blue};
+    fill: ${Colors.Main.Primary};
   }
 
   :hover {
