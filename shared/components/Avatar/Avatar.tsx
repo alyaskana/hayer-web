@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { StyledImage } from "./styles";
+import { Image } from "./styles";
 
 type AvatarProps = {
   src: string | null | undefined;
@@ -13,7 +13,7 @@ export const Avatar: FC<AvatarProps> = ({ src, size = 32, className }) => {
     : "/assets/images/default_avatar.png";
 
   return (
-    <StyledImage
+    <Image
       src={imageSrc}
       alt="avatar"
       width={size}

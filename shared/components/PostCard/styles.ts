@@ -77,11 +77,3 @@ export const StyledText = styled(Text)`
   margin-top: 20px;
   max-width: 550px;
 `;
-
-export const StyledTitle = styled(Title)`
-  margin-bottom: 12px;
-`;
-
-export const StyledCaption_2 = styled(Caption_2)`
-  margin-left: 4px;
-`;

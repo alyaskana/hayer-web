@@ -2,10 +2,10 @@ import { FC } from "react";
 import { differenceInCalendarDays } from "date-fns";
 
 import { Colors } from "@shared/constants/Colors";
-import { Title } from "@shared/components";
+import { Title, Headline } from "@shared/components";
 import { pluralize } from "@shared/utils";
 
-import { Icon, Wrap, StyledHeadline } from "./styles";
+import { Icon, Wrap } from "./styles";
 
 import TimeIcon from "@assets/icons/time.svg";
 import ClosedIcon from "@assets/icons/closed.svg";
@@ -22,7 +22,9 @@ export const Deadline: FC<{ date: string }> = ({ date }) => {
           <TimeIcon />
         </Icon>
         <div>
-          <StyledHeadline color={Colors.Main.Gray_1}>Дедлайн</StyledHeadline>
+          <Headline mb="4px" color={Colors.Main.Gray_1}>
+            Дедлайн
+          </Headline>
           <Title>{deadline}</Title>
         </div>
       </Wrap>

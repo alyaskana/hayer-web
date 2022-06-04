@@ -10,7 +10,7 @@ export const RadioButtonWrap = styled.div`
   margin-top: 8px;
 `;
 
-export const StyledInput: any = styled.input`
+export const Input: any = styled.input`
   &:checked,
   &:not(:checked) {
     position: absolute;

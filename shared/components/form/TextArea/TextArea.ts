@@ -6,7 +6,7 @@ export const TextArea: FC<HTMLProps<HTMLTextAreaElement>> = styled.textarea`
   width: 100%;
   height: 136px;
   border-radius: 12px;
-  padding: 8px;
+  padding: 8px 12px;
   color: ${Colors.Main.Gray_3};
   font-family: "Suisse Intl";
   font-size: 15px;

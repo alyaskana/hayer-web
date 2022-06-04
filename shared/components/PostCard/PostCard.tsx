@@ -6,7 +6,12 @@ import russianLocale from "date-fns/locale/ru";
 import { Colors } from "@shared/constants/Colors";
 import { Post } from "@shared/types";
 import { truncate } from "@shared/utils";
-import { Caption_1, Caption_2, Headline } from "../Typography/Typography";
+import {
+  Caption_1,
+  Caption_2,
+  Headline,
+  Title,
+} from "../Typography/Typography";
 import {
   Footer,
   Header,
@@ -17,8 +22,6 @@ import {
   ResponseIconWrap,
   StyledTag,
   StyledText,
-  StyledTitle,
-  StyledCaption_2,
   Tags,
   UserAvatar,
   UserInfo,
@@ -61,7 +64,7 @@ export const PostCard: FC<PostCardProps> = ({ post, className }) => {
                 <EventActiveIcon />
               </IconCategory>
             ) : null}
-            <StyledCaption_2>{post.format}</StyledCaption_2>
+            <Caption_2 ml="4px">{post.format}</Caption_2>
           </HeaderInfo>
           <ResponseCounter>
             <ResponseIconWrap>
@@ -71,7 +74,7 @@ export const PostCard: FC<PostCardProps> = ({ post, className }) => {
           </ResponseCounter>
         </Header>
 
-        <StyledTitle>{post.title}</StyledTitle>
+        <Title mb="12px">{post.title}</Title>
         {post.tags.length > 0 && (
           <Tags>
             {post.tags.map((tag) => (

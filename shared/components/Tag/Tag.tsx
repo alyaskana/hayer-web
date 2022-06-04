@@ -1,5 +1,6 @@
 import { FC } from "react";
-import { Wrap, StyledText } from "./styles";
+import { Wrap } from "./styles";
+import { Text } from "@shared/components/Typography/Typography";
 
 type TagProps = {
   text: string;
@@ -8,7 +9,7 @@ type TagProps = {
 export const Tag: FC<TagProps> = ({ text }) => {
   return (
     <Wrap>
-      <StyledText>{text}</StyledText>
+      <Text>{text}</Text>
     </Wrap>
   );
 };

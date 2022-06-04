@@ -1,4 +1,3 @@
-import { Headline } from "@shared/components";
 import { Colors } from "@shared/constants/Colors";
 import styled from "styled-components";
 
@@ -16,8 +15,4 @@ export const Icon = styled.div`
   width: 72px;
   height: 72px;
   margin-right: 12px;
-`;
-
-export const StyledHeadline = styled(Headline)`
-  margin-bottom: 4;
 `;

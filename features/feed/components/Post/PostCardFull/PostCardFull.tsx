@@ -5,7 +5,7 @@ import russianLocale from "date-fns/locale/ru";
 
 import { Colors } from "@shared/constants/Colors";
 import { Post } from "@shared/types";
-import { Caption_1, Caption_2 } from "@shared/components";
+import { Caption_1, Caption_2, Title } from "@shared/components";
 import {
   Footer,
   Header,
@@ -14,8 +14,6 @@ import {
   PostWrap,
   StyledTag,
   StyledText,
-  StyledTitle,
-  StyledCaption_2,
   Tags,
   UserAvatar,
   UserInfo,
@@ -58,12 +56,12 @@ export const PostCardFull: FC<PostCardFullProps> = ({ post, className }) => {
                 <EventActiveIcon />
               </IconCategory>
             ) : null}
-            <StyledCaption_2>{post.format}</StyledCaption_2>
+            <Caption_2 ml="4px">{post.format}</Caption_2>
           </HeaderInfo>
           <FavoriteIcon />
         </Header>
 
-        <StyledTitle>{post.title}</StyledTitle>
+        <Title mb="12px">{post.title}</Title>
         {post.tags.length > 0 && (
           <Tags>
             {post.tags.map((tag) => (
@@ -72,7 +70,9 @@ export const PostCardFull: FC<PostCardFullProps> = ({ post, className }) => {
           </Tags>
         )}
 
-        <StyledText>{post.description}</StyledText>
+        <StyledText mt="20px" mb="24px">
+          {post.description}
+        </StyledText>
 
         <Footer>
           <UserInfo>

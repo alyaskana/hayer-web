@@ -3,7 +3,7 @@ import { FC, HTMLProps } from "react";
 import styled from "styled-components";
 
 export const Input: FC<HTMLProps<HTMLInputElement>> = styled.input`
-  padding: 16px 8px;
+  padding: 16px;
   background-color: ${Colors.Main.White_gray};
   border-radius: 20px;
   width: 100%;
