@@ -1,7 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import type { NextPage } from "next";
-import { Title } from "@shared/components";
-import { FormTitle } from "@shared/components/form";
+import { Button, Title } from "@shared/components";
 
 type StepProps = {
   setFormStep: Dispatch<SetStateAction<number>>;
@@ -10,8 +9,12 @@ type StepProps = {
 const Step3: NextPage<StepProps> = ({ setFormStep }) => {
   return (
     <>
-      <FormTitle>Регистрация</FormTitle>
       <Title>Почта подтверждена!</Title>
+      <Button
+        text="Продолжить"
+        variant="primary"
+        onClick={() => setFormStep(4)}
+      />
     </>
   );
 };

@@ -14,7 +14,7 @@ type AuthContext = {
   token: string | null;
   user: User | null;
   login: (email: string, password: string) => void;
-  signup: (id: string, data: Record<string, string>) => void;
+  signup: (id: string | number, data: Record<string, string>) => void;
   logout: () => void;
 };
 
@@ -44,13 +44,13 @@ const useAuthProvider = () => {
     });
   };
 
-  const signup = (id: string, data: Record<string, string>) => {
+  const signup = (id: string | number, data: Record<string, string>) => {
     authFetcher.completeSignUp(id, data).then((response) => {
       const token = response.headers.authorization;
       Cookies.set("token", token);
       setToken(token);
       setUser(response.data);
-      router.push("/");
+      // router.push("/");
     });
   };
 
