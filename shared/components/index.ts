@@ -1,5 +1,5 @@
 export { Tag } from "./Tag/Tag";
-export { PostCard } from "./PostCard/PostCard";
+export { PostCard } from "./Post/PostCard";
 export { PostCardList } from "./PostCardList/PostCardList";
 export { Button } from "./Button/Button";
 export { Layout } from "./Layout/Layout";

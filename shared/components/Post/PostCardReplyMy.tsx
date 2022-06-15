@@ -5,13 +5,21 @@ import russianLocale from "date-fns/locale/ru";
 
 import { Colors } from "@shared/constants/Colors";
 import { Post } from "@shared/types";
-import { Caption_1, Caption_2, Title } from "@shared/components";
+import { truncate } from "@shared/utils";
+import {
+  Caption_1,
+  Caption_2,
+  Headline,
+  Title,
+} from "../Typography/Typography";
 import {
   Footer,
   Header,
   HeaderInfo,
   IconCategory,
   PostWrap,
+  Counter,
+  CounterIconWrap,
   StyledTag,
   StyledText,
   Tags,
@@ -23,14 +31,14 @@ import ClosedIcon from "@assets/icons/closed.svg";
 import WorkActiveIcon from "@assets/icons/work_active.svg";
 import StudyActiveIcon from "@assets/icons/study_active.svg";
 import EventActiveIcon from "@assets/icons/event_active.svg";
-import FavoriteIcon from "@assets/icons/favorite_unactive.svg";
+import DeadlineIcon from "@assets/icons/deadline.svg";
 
-type PostCardFullProps = {
+type PostCardProps = {
   post: Post;
   className?: string;
 };
 
-export const PostCardFull: FC<PostCardFullProps> = ({ post, className }) => {
+export const PostCardReplyMy: FC<PostCardProps> = ({ post, className }) => {
   return (
     <Link href={`/posts/${post.id}`} passHref>
       <PostWrap className={className}>
@@ -58,21 +66,15 @@ export const PostCardFull: FC<PostCardFullProps> = ({ post, className }) => {
             ) : null}
             <Caption_2 ml="4px">{post.format}</Caption_2>
           </HeaderInfo>
-          <FavoriteIcon />
+          <Counter>
+            <CounterIconWrap>
+              <DeadlineIcon />
+            </CounterIconWrap>
+            <Headline>{post.responses.length}</Headline>
+          </Counter>
         </Header>
 
         <Title mb="12px">{post.title}</Title>
-        {post.tags.length > 0 && (
-          <Tags>
-            {post.tags.map((tag) => (
-              <StyledTag text={tag.name} key={tag.id} />
-            ))}
-          </Tags>
-        )}
-
-        <StyledText mt="20px" mb="24px">
-          {post.description}
-        </StyledText>
 
         <Footer>
           <UserInfo>

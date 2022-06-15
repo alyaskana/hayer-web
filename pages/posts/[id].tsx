@@ -1,9 +1,9 @@
 import { postsFetcher } from "@shared/api";
 import { Button, Layout } from "@shared/components";
 import { Post } from "@shared/types";
-import { Deadline } from "features/feed/components/Post/Deadline/Deadline";
-import { PostCardFull } from "features/feed/components/Post/PostCardFull/PostCardFull";
-import { ResponseCounter } from "features/feed/components/Post/ResponseCounter/ResponseCounter";
+import { Deadline } from "@shared/components/Post/Deadline/Deadline";
+import { PostCardReplyClient } from "@shared/components/Post/PostCardReplyClient";
+import { ResponseCounter } from "@shared/components/Post/ResponseCounter/ResponseCounter";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -22,7 +22,7 @@ const PostPage = () => {
   if (!post) return null;
   return (
     <Layout>
-      <PostCardFull post={post} />
+      <PostCardReplyClient post={post} />
       <Deadline date={post.deadline} />
       <ResponseCounter count={post.responses.length} />
       <Button

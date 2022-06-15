@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { PostCard } from "@shared/components/PostCard/PostCard";
+import { PostCard } from "@shared/components/Post/PostCard";
 
 export const ListWrap = styled.div`
   display: flex;

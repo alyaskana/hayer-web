@@ -33,7 +33,7 @@ export const IconCategory = styled.div`
   margin-right: 4px;
 `;
 
-export const ResponseCounter = styled.div`
+export const Counter = styled.div`
   height: 32px;
   padding-left: 12px;
   padding-right: 12px;
@@ -43,7 +43,12 @@ export const ResponseCounter = styled.div`
   align-items: center;
 `;
 
-export const ResponseIconWrap = styled.div`
+export const NotificationCounter = styled(Counter)`
+  background-color: ${Colors.Accent.Yellow};
+  margin-right: 4px;
+`;
+
+export const CounterIconWrap = styled.div`
   margin-right: 4px;
   width: 20px;
   height: 20px;
@@ -51,12 +56,14 @@ export const ResponseIconWrap = styled.div`
 
 export const Tags = styled.div`
   display: flex;
+  margin-top: 12px;
 `;
 
 export const Footer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 24px;
 `;
 
 export const UserInfo = styled.div`
@@ -73,7 +80,6 @@ export const StyledTag = styled(Tag)`
 `;
 
 export const StyledText = styled(Text)`
-  margin-bottom: 24px;
   margin-top: 20px;
   max-width: 550px;
 `;

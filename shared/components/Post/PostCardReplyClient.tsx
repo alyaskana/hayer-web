@@ -1,30 +1,15 @@
 import { FC } from "react";
 import Link from "next/link";
-import { formatRelative } from "date-fns";
-import russianLocale from "date-fns/locale/ru";
-
-import { Colors } from "@shared/constants/Colors";
 import { Post } from "@shared/types";
-import { truncate } from "@shared/utils";
+import { Caption_2, Headline, Title } from "../Typography/Typography";
 import {
-  Caption_1,
-  Caption_2,
-  Headline,
-  Title,
-} from "../Typography/Typography";
-import {
-  Footer,
   Header,
   HeaderInfo,
   IconCategory,
   PostWrap,
-  ResponseCounter,
-  ResponseIconWrap,
-  StyledTag,
-  StyledText,
-  Tags,
-  UserAvatar,
-  UserInfo,
+  Counter,
+  CounterIconWrap,
+  NotificationCounter,
 } from "./styles";
 
 import ClosedIcon from "@assets/icons/closed.svg";
@@ -38,7 +23,7 @@ type PostCardProps = {
   className?: string;
 };
 
-export const PostCard: FC<PostCardProps> = ({ post, className }) => {
+export const PostCardReplyClient: FC<PostCardProps> = ({ post, className }) => {
   return (
     <Link href={`/posts/${post.id}`} passHref>
       <PostWrap className={className}>
@@ -66,38 +51,20 @@ export const PostCard: FC<PostCardProps> = ({ post, className }) => {
             ) : null}
             <Caption_2 ml="4px">{post.format}</Caption_2>
           </HeaderInfo>
-          <ResponseCounter>
-            <ResponseIconWrap>
-              <ResponseIcon />
-            </ResponseIconWrap>
-            <Headline>{post.responses.length}</Headline>
-          </ResponseCounter>
+          <div style={{ display: "flex" }}>
+            <NotificationCounter>
+              <Headline>+ {1}</Headline>
+            </NotificationCounter>
+            <Counter>
+              <CounterIconWrap>
+                <ResponseIcon />
+              </CounterIconWrap>
+              <Headline>{post.responses.length}</Headline>
+            </Counter>
+          </div>
         </Header>
 
-        <Title mb="12px">{post.title}</Title>
-        {post.tags.length > 0 && (
-          <Tags>
-            {post.tags.map((tag) => (
-              <StyledTag text={tag.name} key={tag.id} />
-            ))}
-          </Tags>
-        )}
-
-        <StyledText>{truncate(post.description, 180)}</StyledText>
-
-        <Footer>
-          <UserInfo>
-            <UserAvatar src={post.user.avatar} />
-            <Caption_1>
-              {post.user.first_name} {post.user.last_name}
-            </Caption_1>
-          </UserInfo>
-          <Caption_2 color={Colors.Main.Gray_1}>
-            {formatRelative(new Date(post.created_at), new Date(), {
-              locale: russianLocale,
-            })}
-          </Caption_2>
-        </Footer>
+        <Title>{post.title}</Title>
       </PostWrap>
     </Link>
   );
