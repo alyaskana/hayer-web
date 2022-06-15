@@ -1,14 +1,8 @@
 import type { NextPage } from "next";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
-import { useAuth } from "@shared/hooks";
-import {
-  FieldSet,
-  Form,
-  FormTitle,
-  Input,
-  Label,
-} from "@shared/components/form";
-import { Button, Caption_2, Layout } from "@shared/components";
+import { useAuth } from "hooks";
+import { FieldSet, Form, FormTitle, Input, Label } from "components/form";
+import { Button, Caption_2, Layout } from "components";
 
 type FormInputs = {
   email: string;

@@ -3,12 +3,12 @@ import intersection from "lodash/intersection";
 import type { NextPage, InferGetServerSidePropsType } from "next";
 import Head from "next/head";
 
-import { postsFetcher } from "@shared/api";
-import { Layout } from "@shared/components";
-import { PostCardList } from "@shared/components";
-import { Filters } from "features/feed/components/Filters/Filters";
-import { Post } from "@shared/types";
-import { useActionCable } from "@shared/hooks";
+import { postsFetcher } from "api";
+import { Layout } from "components";
+import { PostCardList } from "components";
+import { Filters } from "components/Filters/Filters";
+import { Post } from "types";
+import { useActionCable } from "hooks";
 
 type PageProps = NextPage<
   InferGetServerSidePropsType<typeof getServerSideProps>

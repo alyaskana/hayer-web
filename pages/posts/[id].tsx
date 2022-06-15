@@ -1,9 +1,9 @@
-import { postsFetcher } from "@shared/api";
-import { Button, Layout } from "@shared/components";
-import { Post } from "@shared/types";
-import { Deadline } from "@shared/components/Post/Deadline/Deadline";
-import { PostCardReplyClient } from "@shared/components/Post/PostCardReplyClient";
-import { ResponseCounter } from "@shared/components/Post/ResponseCounter/ResponseCounter";
+import { postsFetcher } from "api";
+import { Button, Layout } from "components";
+import { Post } from "types";
+import { Deadline } from "components/Post/Deadline/Deadline";
+import { PostCardReplyClient } from "components/Post/PostCardReplyClient";
+import { ResponseCounter } from "components/Post/ResponseCounter/ResponseCounter";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 

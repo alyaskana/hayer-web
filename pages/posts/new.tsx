@@ -2,8 +2,8 @@ import { useRouter } from "next/router";
 import type { NextPage } from "next";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 
-import { Colors } from "@shared/constants/Colors";
-import { Tag } from "@shared/types";
+import { Colors } from "constants/Colors";
+import { Tag } from "types";
 import {
   FieldSet,
   Form,
@@ -14,9 +14,9 @@ import {
   TitleInput,
   TypeCheckBox,
   RadioButton,
-} from "@shared/components/form";
-import { Button, Caption_2, Caption_3, Layout } from "@shared/components";
-import { postsFetcher } from "@shared/api";
+} from "components/form";
+import { Button, Caption_2, Caption_3, Layout } from "components";
+import { postsFetcher } from "api";
 
 import WorkActiveIcon from "@assets/icons/work_active.svg";
 import StudyActiveIcon from "@assets/icons/study_active.svg";
