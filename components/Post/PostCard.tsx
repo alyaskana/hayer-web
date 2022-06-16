@@ -5,7 +5,6 @@ import russianLocale from "date-fns/locale/ru";
 
 import { Colors } from "constants/Colors";
 import { Post } from "types";
-import { truncate } from "utils";
 import {
   Caption_1,
   Caption_2,
@@ -20,9 +19,7 @@ import {
   PostWrap,
   Counter,
   CounterIconWrap,
-  StyledTag,
-  StyledText,
-  Tags,
+  TruncatedText,
   UserAvatar,
   UserInfo,
 } from "./styles";
@@ -74,16 +71,9 @@ export const PostCard: FC<PostCardProps> = ({ post, className }) => {
           </Counter>
         </Header>
 
-        <Title mb="12px">{post.title}</Title>
-        {/* {post.tags.length > 0 && (
-          <Tags>
-            {post.tags.map((tag) => (
-              <StyledTag text={tag.name} key={tag.id} />
-            ))}
-          </Tags>
-        )} */}
+        <Title>{post.title}</Title>
 
-        <StyledText>{truncate(post.description, 180)}</StyledText>
+        <TruncatedText>{post.description}</TruncatedText>
 
         <Footer>
           <UserInfo>

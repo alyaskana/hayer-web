@@ -2,7 +2,7 @@ import { postsFetcher } from "api";
 import { Button, Layout } from "components";
 import { Post } from "types";
 import { Deadline } from "components/Post/Deadline/Deadline";
-import { PostCardReplyClient } from "components/Post/PostCardReplyClient";
+import { PostCardFull } from "components/Post/PostCardFull";
 import { ResponseCounter } from "components/Post/ResponseCounter/ResponseCounter";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -22,7 +22,7 @@ const PostPage = () => {
   if (!post) return null;
   return (
     <Layout>
-      <PostCardReplyClient post={post} />
+      <PostCardFull post={post} />
       <Deadline date={post.deadline} />
       <ResponseCounter count={post.responses.length} />
       <Button

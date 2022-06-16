@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { Colors } from "constants/Colors";
 import { Tag } from "components";
-import { Text, Title, Caption_2 } from "components/Typography/Typography";
+import { Text } from "components/Typography/Typography";
 import { Avatar } from "components/Avatar/Avatar";
+import Link from "next/link";
 
 export const PostWrap = styled.div`
   background-color: ${Colors.Main.White};
@@ -15,7 +16,6 @@ export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
 `;
 
 export const HeaderInfo = styled.div`
@@ -59,7 +59,7 @@ export const Footer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 24px;
+  margin-top: 20px;
 `;
 
 export const UserInfo = styled.div`
@@ -76,6 +76,34 @@ export const StyledTag = styled(Tag)`
 `;
 
 export const StyledText = styled(Text)`
-  margin-top: 20px;
+  margin-top: 16px;
   max-width: 550px;
+`;
+
+export const TruncatedText = styled(StyledText)`
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+`;
+
+export const LinkWrap = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+`;
+
+export const StyledLink = styled.a`
+  font-family: "Suisse Intl Book";
+  font-size: 15px;
+  line-height: 16px;
+  color: ${Colors.Main.Primary};
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 8px;
+
+  :hover {
+    text-decoration: underline;
+  }
 `;

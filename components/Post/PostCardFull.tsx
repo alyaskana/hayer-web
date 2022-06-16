@@ -12,11 +12,11 @@ import {
   HeaderInfo,
   IconCategory,
   PostWrap,
-  StyledTag,
   StyledText,
-  Tags,
   UserAvatar,
   UserInfo,
+  LinkWrap,
+  StyledLink,
 } from "./styles";
 
 import ClosedIcon from "@assets/icons/closed.svg";
@@ -25,6 +25,7 @@ import StudyActiveIcon from "@assets/icons/study_active.svg";
 import EventActiveIcon from "@assets/icons/event_active.svg";
 import FavoriteUnactiveIcon from "@assets/icons/favorite_unactive.svg";
 import FavoriteActiveIcon from "@assets/icons/favorite_active.svg";
+import LinkIcon from "@assets/icons/link.svg";
 
 type PostCardFullProps = {
   post: Post;
@@ -71,18 +72,24 @@ export const PostCardFull: FC<PostCardFullProps> = ({ post, className }) => {
           )}
         </Header>
 
-        <Title mb="12px">{post.title}</Title>
-        {/* {post.tags.length > 0 && (
-          <Tags>
-            {post.tags.map((tag) => (
-              <StyledTag text={tag.name} key={tag.id} />
-            ))}
-          </Tags>
-        )} */}
+        <Title mt="16px">{post.title}</Title>
 
-        <StyledText mt="20px" mb="24px">
-          {post.description}
-        </StyledText>
+        <StyledText mt="16px">{post.description}</StyledText>
+
+        {/* {post.link && ( */}
+        <LinkWrap>
+          <LinkIcon />
+          <StyledLink
+            href={
+              "https://docs.google.com/spreadsheets/d/1CunJD5Tp_Ar6Iv5aHnQayclD_VwPSQjmQY7yftf6r7fyt67f"
+            }
+          >
+            {
+              "https://docs.google.com/spreadsheets/d/1CunJD5Tp_Ar6Iv5aHnQayclD_VwPSQjmQY7v331fgffgtyrtyftf6r7fyt67f"
+            }
+          </StyledLink>
+        </LinkWrap>
+        {/* )} */}
 
         <Footer>
           <UserInfo>

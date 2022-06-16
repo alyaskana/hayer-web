@@ -5,7 +5,6 @@ import russianLocale from "date-fns/locale/ru";
 
 import { Colors } from "constants/Colors";
 import { Post } from "types";
-import { truncate } from "utils";
 import {
   Caption_1,
   Caption_2,
@@ -20,9 +19,6 @@ import {
   PostWrap,
   Counter,
   CounterIconWrap,
-  StyledTag,
-  StyledText,
-  Tags,
   UserAvatar,
   UserInfo,
 } from "./styles";
