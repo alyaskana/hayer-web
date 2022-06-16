@@ -13,6 +13,7 @@ export type Post = {
   deadline: string;
   tags: Tag[];
   responses: Response[];
+  link: string;
   created_at: string;
   updated_at: string;
 };

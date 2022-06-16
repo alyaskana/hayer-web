@@ -38,57 +38,59 @@ type PostCardProps = {
 export const PostCard: FC<PostCardProps> = ({ post, className }) => {
   return (
     <Link href={`/posts/${post.id}`} passHref>
-      <PostWrap className={className}>
-        <Header>
-          <HeaderInfo>
-            {new Date(post.deadline) < new Date() ? (
-              <IconCategory>
-                <ClosedIcon />
-              </IconCategory>
-            ) : null}
-            {post.ad_types.find((type) => type.name == "Работа") ? (
-              <IconCategory>
-                <WorkActiveIcon />
-              </IconCategory>
-            ) : null}
-            {post.ad_types.find((type) => type.name == "Учеба") ? (
-              <IconCategory>
-                <StudyActiveIcon />
-              </IconCategory>
-            ) : null}
-            {post.ad_types.find((type) => type.name == "Ивенты") ? (
-              <IconCategory>
-                <EventActiveIcon />
-              </IconCategory>
-            ) : null}
-            <Caption_2 ml="4px">{post.format}</Caption_2>
-          </HeaderInfo>
-          <Counter>
-            <CounterIconWrap>
-              <ResponseIcon />
-            </CounterIconWrap>
-            <Headline>{post.responses.length}</Headline>
-          </Counter>
-        </Header>
+      <a>
+        <PostWrap className={className}>
+          <Header>
+            <HeaderInfo>
+              {new Date(post.deadline) < new Date() ? (
+                <IconCategory>
+                  <ClosedIcon />
+                </IconCategory>
+              ) : null}
+              {post.ad_types.find((type) => type.name == "Работа") ? (
+                <IconCategory>
+                  <WorkActiveIcon />
+                </IconCategory>
+              ) : null}
+              {post.ad_types.find((type) => type.name == "Учеба") ? (
+                <IconCategory>
+                  <StudyActiveIcon />
+                </IconCategory>
+              ) : null}
+              {post.ad_types.find((type) => type.name == "Ивенты") ? (
+                <IconCategory>
+                  <EventActiveIcon />
+                </IconCategory>
+              ) : null}
+              <Caption_2 ml="4px">{post.format}</Caption_2>
+            </HeaderInfo>
+            <Counter>
+              <CounterIconWrap>
+                <ResponseIcon />
+              </CounterIconWrap>
+              <Headline>{post.responses.length}</Headline>
+            </Counter>
+          </Header>
 
-        <Title>{post.title}</Title>
+          <Title mt="16px">{post.title}</Title>
 
-        <TruncatedText>{post.description}</TruncatedText>
+          <TruncatedText>{post.description}</TruncatedText>
 
-        <Footer>
-          <UserInfo>
-            <UserAvatar src={post.user.avatar} />
-            <Caption_1>
-              {post.user.first_name} {post.user.last_name}
-            </Caption_1>
-          </UserInfo>
-          <Caption_2 color={Colors.Main.Gray_1}>
-            {formatRelative(new Date(post.created_at), new Date(), {
-              locale: russianLocale,
-            })}
-          </Caption_2>
-        </Footer>
-      </PostWrap>
+          <Footer>
+            <UserInfo>
+              <UserAvatar src={post.user.avatar} />
+              <Caption_1>
+                {post.user.first_name} {post.user.last_name}
+              </Caption_1>
+            </UserInfo>
+            <Caption_2 color={Colors.Main.Gray_1}>
+              {formatRelative(new Date(post.created_at), new Date(), {
+                locale: russianLocale,
+              })}
+            </Caption_2>
+          </Footer>
+        </PostWrap>
+      </a>
     </Link>
   );
 };

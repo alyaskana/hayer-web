@@ -74,22 +74,14 @@ export const PostCardFull: FC<PostCardFullProps> = ({ post, className }) => {
 
         <Title mt="16px">{post.title}</Title>
 
-        <StyledText mt="16px">{post.description}</StyledText>
+        <StyledText>{post.description}</StyledText>
 
-        {/* {post.link && ( */}
-        <LinkWrap>
-          <LinkIcon />
-          <StyledLink
-            href={
-              "https://docs.google.com/spreadsheets/d/1CunJD5Tp_Ar6Iv5aHnQayclD_VwPSQjmQY7yftf6r7fyt67f"
-            }
-          >
-            {
-              "https://docs.google.com/spreadsheets/d/1CunJD5Tp_Ar6Iv5aHnQayclD_VwPSQjmQY7v331fgffgtyrtyftf6r7fyt67f"
-            }
-          </StyledLink>
-        </LinkWrap>
-        {/* )} */}
+        {post.link && (
+          <LinkWrap>
+            <LinkIcon />
+            <StyledLink href={post.link}>{post.link}</StyledLink>
+          </LinkWrap>
+        )}
 
         <Footer>
           <UserInfo>
