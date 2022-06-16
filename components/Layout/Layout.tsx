@@ -1,11 +1,12 @@
 import { FC } from "react";
 import { Footer } from "components";
-import { Main, Wrap, StyledHeader } from "./styles";
+import { Header } from "components";
+import { Main, Wrap } from "./styles";
 
 export const Layout: FC = ({ children }) => {
   return (
     <Wrap>
-      <StyledHeader />
+      <Header mb="32px" />
       <Main>{children}</Main>
       {/* <Footer /> */}
     </Wrap>

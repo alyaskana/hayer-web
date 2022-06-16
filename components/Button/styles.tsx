@@ -38,9 +38,8 @@ export const BigPrimaryButton = styled(DefaultButton)`
 `;
 
 export const PrimaryButton = styled(DefaultButton)`
-  height: 80px;
-  padding: 30px;
-  min-width: 290px;
+  height: 68px;
+  padding: 24px 36px;
   background-color: ${Colors.Main.Primary};
   color: ${Colors.Main.White};
 

@@ -2,17 +2,17 @@ import { FC } from "react";
 import Link from "next/link";
 import {
   Wrap,
-  Logo,
-  LogoTitle,
   Menu,
   StyledLink,
   AuthLinks,
   AuthLink,
+  Logo,
+  Burger,
 } from "./styles";
 import { Button } from "components";
-import LogoIcon from "@assets/logo.svg";
 import { useAuth } from "hooks";
 import { Headline } from "components";
+import BurgerIcon from "@assets/icons/burger.svg";
 
 export const Header: FC<{ className?: string }> = ({ className }) => {
   const { token } = useAuth();
@@ -20,10 +20,9 @@ export const Header: FC<{ className?: string }> = ({ className }) => {
   return (
     <Wrap className={className}>
       <Link href={"/"} passHref>
-        <Logo>
-          <LogoIcon />
-          <LogoTitle>Хайер</LogoTitle>
-        </Logo>
+        <a>
+          <Logo />
+        </a>
       </Link>
       {token && (
         <Menu>
@@ -50,6 +49,9 @@ export const Header: FC<{ className?: string }> = ({ className }) => {
           </AuthLink>
         </AuthLinks>
       )}
+      <Burger>
+        <BurgerIcon />
+      </Burger>
     </Wrap>
   );
 };
