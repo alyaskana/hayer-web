@@ -5,6 +5,9 @@ import { device } from "styles/breakpoints";
 export const Main = styled.main`
   margin: 0 auto;
   max-width: 728px;
+  @media ${device.mobile} {
+    padding: 60px 8px;
+  }
 `;
 
 export const Wrap = styled.div`
@@ -13,6 +16,6 @@ export const Wrap = styled.div`
   min-height: 100vh;
 
   @media ${device.mobile} {
-    padding: 0 8px;
+    padding: 0;
   }
 `;

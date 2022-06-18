@@ -51,6 +51,13 @@ export const PrimaryButton = styled(DefaultButton)`
   }
 `;
 
+export const PrimaryBurgerButton = styled(DefaultButton)`
+  padding: 30px;
+  background-color: ${Colors.Main.Primary};
+  color: ${Colors.Main.White};
+  width: 100%;
+`;
+
 export const SecondaryButton = styled(DefaultButton)`
   height: 48px;
   padding: 16px;

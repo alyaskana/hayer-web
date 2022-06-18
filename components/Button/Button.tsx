@@ -6,6 +6,7 @@ import {
   PrimaryButton,
   SecondaryButton,
   NavButton,
+  PrimaryBurgerButton,
 } from "./styles";
 import { Caption_1 } from "../Typography/Typography";
 
@@ -15,7 +16,12 @@ type ButtonProps = {
   text?: string;
   icon?: ReactElement;
   type?: "button" | "submit" | "reset";
-  variant: "bigPrimary" | "primary" | "secondary" | "navButton";
+  variant:
+    | "bigPrimary"
+    | "primary"
+    | "secondary"
+    | "navButton"
+    | "primaryBurger";
   danger?: boolean;
   className?: string;
   margin?: string;
@@ -54,6 +60,11 @@ const BaseButton: FC<BaseButtonProps> = ({
         <PrimaryButton onClick={onClick} type={type} margin={margin}>
           <Headline color="inherit">{text}</Headline>
         </PrimaryButton>
+      )}
+      {variant == "primaryBurger" && (
+        <PrimaryBurgerButton onClick={onClick} type={type} margin={margin}>
+          <Headline color="inherit">{text}</Headline>
+        </PrimaryBurgerButton>
       )}
       {variant == "secondary" && (
         <SecondaryButton
