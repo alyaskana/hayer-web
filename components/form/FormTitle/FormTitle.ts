@@ -1,5 +1,6 @@
 import { Colors } from "constants/Colors";
 import styled from "styled-components";
+import { device } from "styles/breakpoints";
 
 export const FormTitle = styled.h1`
   font-family: "Suisse Intl Book";
@@ -9,4 +10,7 @@ export const FormTitle = styled.h1`
   font-weight: 400;
   color: ${Colors.Main.Black};
   margin-bottom: 32px;
+  @media ${device.mobile} {
+    display: none;
+  }
 `;

@@ -20,42 +20,65 @@ const Step1: NextPage<StepProps> = ({
   setUserEmail,
   setUserId,
 }) => {
-  const { handleSubmit, control } = useForm<FormInputs>({ mode: "onChange" });
+  const {
+    handleSubmit,
+    control,
+    setError,
+    formState: { errors },
+  } = useForm<FormInputs>({ mode: "onBlur" });
 
   const onSubmit: SubmitHandler<FormInputs> = (data) => {
-    authFetcher.signup(data.email).then((res) => {
-      setUserId(res.data.id);
-      setUserEmail(data.email);
-      setFormStep(2);
-    });
+    authFetcher
+      .signup(data.email)
+      .then((res) => {
+        setUserId(res.data.id);
+        setUserEmail(data.email);
+        setFormStep(2);
+      })
+      .catch((err) => {
+        setError("email", {
+          type: "value",
+          message: err.response.data.error, // это текст ошибки с бэка
+          // message: "Не тот :( Проверь все символы",
+        });
+      });
   };
 
   return (
     <>
       <FormTitle>Регистрация</FormTitle>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <FieldSet>
-          <Label>
-            <Caption_2>Email</Caption_2>
-          </Label>
-          <Controller
-            name="email"
-            control={control}
-            rules={{
-              required: "Это обязательное поле",
-              pattern: {
-                value: /^[\w-\.]+@edu.hse.ru$/,
-                message: "Кажется, это не вышкинская почта",
-              },
-            }}
-            // defaultValue="aabychkova_4@edu.hse.ru"
-            render={({ field }) => (
-              <Input placeholder="example@edu.hse.ru" {...field} />
-            )}
-          />
-        </FieldSet>
-        <Button variant="bigPrimary" type="submit" text="Получить код" />
+        <Label>
+          <Caption_2>Email</Caption_2>
+        </Label>
+        <Controller
+          name="email"
+          control={control}
+          rules={{
+            required: "Это обязательное поле",
+            pattern: {
+              value: /^[\w-\.]+@edu.hse.ru$/,
+              message: "Кажется, это не вышкинская почта",
+            },
+          }}
+          // defaultValue="aabychkova_4@edu.hse.ru"
+          render={({ field }) => (
+            <Input
+              placeholder="example@edu.hse.ru"
+              hint="Отправим код для подтверждения почты. Присылать рекламу не будем"
+              error={errors?.email?.message}
+              {...field}
+            />
+          )}
+        />
       </Form>
+      <Button
+        variant="bigPrimary"
+        type="submit"
+        text="Получить код"
+        margin="32px 0 0"
+        onClick={handleSubmit(onSubmit)}
+      />
     </>
   );
 };

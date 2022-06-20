@@ -19,14 +19,18 @@ type FormInputs = {
 };
 
 const Step4: NextPage<StepProps> = ({ id, setFormStep }) => {
-  const { handleSubmit, control } = useForm<FormInputs>({
+  const {
+    handleSubmit,
+    control,
+    formState: { errors, isValid },
+  } = useForm<FormInputs>({
     mode: "onChange",
-    defaultValues: {
-      first_name: "Иван",
-      last_name: "Иванов",
-      telegram: "telegram",
-      password: "123456",
-    },
+    // defaultValues: {
+    //   first_name: "Иван",
+    //   last_name: "Иванов",
+    //   telegram: "telegram",
+    //   password: "123456",
+    // },
   });
   const { signup } = useAuth();
 
@@ -38,7 +42,7 @@ const Step4: NextPage<StepProps> = ({ id, setFormStep }) => {
   return (
     <>
       <FormTitle>Регистрация</FormTitle>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form>
         <FieldSet>
           <Label>
             <Caption_2>Имя</Caption_2>
@@ -49,7 +53,9 @@ const Step4: NextPage<StepProps> = ({ id, setFormStep }) => {
             rules={{
               required: "Это обязательное поле",
             }}
-            render={({ field }) => <Input {...field} />}
+            render={({ field }) => (
+              <Input {...field} error={errors?.first_name?.message} />
+            )}
           />
         </FieldSet>
         <FieldSet>
@@ -62,7 +68,9 @@ const Step4: NextPage<StepProps> = ({ id, setFormStep }) => {
             rules={{
               required: "Это обязательное поле",
             }}
-            render={({ field }) => <Input {...field} />}
+            render={({ field }) => (
+              <Input {...field} error={errors?.last_name?.message} />
+            )}
           />
         </FieldSet>
         <FieldSet>
@@ -79,24 +87,40 @@ const Step4: NextPage<StepProps> = ({ id, setFormStep }) => {
                 message: "Пароль должен содержать минимум 6 символов",
               },
             }}
-            render={({ field }) => <Input {...field} />}
+            render={({ field }) => (
+              <Input
+                type="password"
+                {...field}
+                error={errors?.password?.message}
+              />
+            )}
           />
         </FieldSet>
-        <FieldSet>
-          <Label>
-            <Caption_2>Телеграм</Caption_2>
-          </Label>
-          <Controller
-            name="telegram"
-            control={control}
-            rules={{
-              required: "Это обязательное поле",
-            }}
-            render={({ field }) => <Input {...field} />}
-          />
-        </FieldSet>
-        <Button variant="bigPrimary" type="submit" text="Зарегистрироваться" />
+        <Label>
+          <Caption_2>Телеграм</Caption_2>
+        </Label>
+        <Controller
+          name="telegram"
+          control={control}
+          rules={{
+            required: "Это обязательное поле",
+          }}
+          render={({ field }) => (
+            <Input
+              {...field}
+              error={errors?.telegram?.message}
+              hint="Заказчики с исполнителями связываются через телеграм"
+            />
+          )}
+        />
       </Form>
+      <Button
+        variant="bigPrimary"
+        type="submit"
+        text="Дальше"
+        margin="20px 0 0"
+        onClick={handleSubmit(onSubmit)}
+      />
     </>
   );
 };

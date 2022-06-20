@@ -23,7 +23,7 @@ import CloseIcon from "@assets/icons/close_menu.svg";
 import FavoriteIcon from "@assets/icons/favorite_active.svg";
 import ResponseIcon from "@assets/icons/response.svg";
 import UserIcon from "@assets/icons/user.svg";
-import BurgerPicture from "@assets/icons/login_picture.svg";
+import BurgerPicture from "@assets/illustrations/login_picture.svg";
 import { Title } from "components/Typography/Typography";
 
 type HeaderProps = {

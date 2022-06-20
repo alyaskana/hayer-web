@@ -1,21 +1,20 @@
-import { Colors } from "constants/Colors";
 import { FC, HTMLProps } from "react";
-import styled from "styled-components";
+import { StyledInput, ErrorMessage, HintMessage } from "./styles";
 
-export const Input: FC<HTMLProps<HTMLInputElement>> = styled.input`
-  padding: 16px;
-  background-color: ${Colors.Main.White_gray};
-  border-radius: 20px;
-  width: 100%;
-  border-radius: 12px;
-  font-family: "Suisse Intl";
-  font-size: 15px;
-  line-height: 20px;
-  color: ${Colors.Main.Gray_3};
-  border: none;
-  outline: none;
+type InputProps = {
+  hint?: string;
+  error?: string;
+} & HTMLProps<HTMLInputElement>;
 
-  ::placeholder {
-    color: ${Colors.Main.Gray_1};
-  }
-`;
+export const Input: FC<InputProps> = ({ hint, error, ...inputProps }) => {
+  return (
+    <>
+      <StyledInput error={error} {...inputProps} />
+      {error ? (
+        <ErrorMessage>{error}</ErrorMessage>
+      ) : (
+        hint && <HintMessage>{hint}</HintMessage>
+      )}
+    </>
+  );
+};

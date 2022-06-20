@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Colors } from "constants/Colors";
+import { device } from "styles/breakpoints";
 
 const DefaultButton = styled.button<{ danger?: boolean; margin?: string }>`
   cursor: pointer;
@@ -12,8 +13,10 @@ const DefaultButton = styled.button<{ danger?: boolean; margin?: string }>`
   transition: background-color 0.2s;
   border-radius: 90px;
   margin: ${(props) => props.margin};
+  width: 100%;
 
   :disabled {
+    cursor: default;
     color: ${Colors.Main.White_gray};
     background-color: ${Colors.Main.Gray_1};
     svg {
@@ -23,9 +26,8 @@ const DefaultButton = styled.button<{ danger?: boolean; margin?: string }>`
 `;
 
 export const BigPrimaryButton = styled(DefaultButton)`
-  height: 145px;
   width: 100%;
-  padding: 40px;
+  padding: 62.5px 40px;
   background-color: ${Colors.Main.Primary};
   color: ${Colors.Main.White};
 
@@ -34,6 +36,11 @@ export const BigPrimaryButton = styled(DefaultButton)`
   }
   :active {
     background-color: ${Colors.Main.PrimaryPressed};
+  }
+
+  @media ${device.mobile} {
+    height: auto;
+    padding: 30px 36px;
   }
 `;
 
@@ -74,6 +81,10 @@ export const SecondaryButton = styled(DefaultButton)`
   }
   :active {
     background-color: "#E4E4E4";
+  }
+  :disabled {
+    background-color: ${Colors.Main.White_gray};
+    color: ${Colors.Main.Gray_2};
   }
 `;
 

@@ -1,4 +1,4 @@
-import { FC, ReactElement } from "react";
+import { FC, HTMLProps, ReactElement } from "react";
 
 import { Headline, InnerLink } from "components";
 import {
@@ -25,7 +25,7 @@ type ButtonProps = {
   danger?: boolean;
   className?: string;
   margin?: string;
-};
+} & HTMLProps<HTMLButtonElement>;
 
 type BaseButtonProps = Pick<
   ButtonProps,
@@ -48,21 +48,37 @@ const BaseButton: FC<BaseButtonProps> = ({
   danger = false,
   onClick,
   margin,
+  ...buttonProps
 }) => {
   return (
     <>
       {variant == "bigPrimary" && (
-        <BigPrimaryButton onClick={onClick} type={type} margin={margin}>
+        <BigPrimaryButton
+          {...buttonProps}
+          onClick={onClick}
+          type={type}
+          margin={margin}
+        >
           <Headline color="inherit">{text}</Headline>
         </BigPrimaryButton>
       )}
       {variant == "primary" && (
-        <PrimaryButton onClick={onClick} type={type} margin={margin}>
+        <PrimaryButton
+          {...buttonProps}
+          onClick={onClick}
+          type={type}
+          margin={margin}
+        >
           <Headline color="inherit">{text}</Headline>
         </PrimaryButton>
       )}
       {variant == "primaryBurger" && (
-        <PrimaryBurgerButton onClick={onClick} type={type} margin={margin}>
+        <PrimaryBurgerButton
+          onClick={onClick}
+          type={type}
+          margin={margin}
+          {...buttonProps}
+        >
           <Headline color="inherit">{text}</Headline>
         </PrimaryBurgerButton>
       )}
@@ -72,13 +88,19 @@ const BaseButton: FC<BaseButtonProps> = ({
           type={type}
           danger={danger}
           margin={margin}
+          {...buttonProps}
         >
           {icon}
           {text && <Caption_1 color="inherit">{text}</Caption_1>}
         </SecondaryButton>
       )}
       {variant == "navButton" && (
-        <NavButton onClick={onClick} type={type} margin={margin}>
+        <NavButton
+          onClick={onClick}
+          type={type}
+          margin={margin}
+          {...buttonProps}
+        >
           {icon}
         </NavButton>
       )}
@@ -96,6 +118,7 @@ export const Button: FC<ButtonProps> = ({
   variant,
   className,
   margin,
+  ...buttonProps
 }) => {
   if (href) {
     return (
@@ -106,6 +129,7 @@ export const Button: FC<ButtonProps> = ({
           variant={variant}
           className={className}
           margin={margin}
+          {...buttonProps}
         />
       </InnerLink>
     );
@@ -119,6 +143,7 @@ export const Button: FC<ButtonProps> = ({
         margin={margin}
         onClick={onClick}
         className={className}
+        {...buttonProps}
       />
     );
   }

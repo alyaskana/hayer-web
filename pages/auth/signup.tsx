@@ -16,7 +16,7 @@ const SignupPage: NextPage = () => {
   console.log("user info --- ", userId, userEmail);
 
   return (
-    <Layout>
+    <Layout headerVariant="miniLogoTitle" title="Регистрация">
       {formStep == 1 && (
         <Step1
           setFormStep={setFormStep}
