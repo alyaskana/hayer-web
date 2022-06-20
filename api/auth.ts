@@ -41,10 +41,10 @@ class AuthFetcher extends API {
     });
   }
 
-  update(id: number | string, data: Record<string, string>) {
+  update(id: number | string, data: FormData) {
     return super.patch<void>({
       path: `users/${id}`,
-      params: { user: data },
+      params: data,
     });
   }
 

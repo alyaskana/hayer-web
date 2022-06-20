@@ -1,7 +1,8 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import type { NextPage } from "next";
-import { Button, Caption_2, Text } from "components";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
+
+import { Button, Caption_2, Text } from "components";
 import {
   FieldSet,
   Form,
@@ -11,6 +12,8 @@ import {
   TextArea,
 } from "components/form";
 import { authFetcher } from "api";
+
+import { UploadImage } from "./styles";
 import { Colors } from "constants/Colors";
 
 type StepProps = {
@@ -29,13 +32,21 @@ type FormInputs = {
 
 const Step5: NextPage<StepProps> = ({ id, setFormStep }) => {
   const { handleSubmit, control } = useForm<FormInputs>({ mode: "onChange" });
+  const [avatarPreview, setAvatarPreview] = useState<string>(
+    "/assets/images/avatar_placeholder.png"
+  );
+  console.log(avatarPreview);
 
   const onSubmit: SubmitHandler<FormInputs> = (data) => {
+    const formData = new FormData();
+    Object.entries(data).forEach(([key, value], index) => {
+      key == "avatar"
+        ? formData.append(key, value[0])
+        : formData.append(key, value);
+    });
     authFetcher
-      .update(id, data)
+      .update(id, formData)
       .then((res) => {
-        console.log("update success!");
-        console.log(res.data);
         setFormStep(6);
       })
       .catch((res) => console.log(res));
@@ -58,7 +69,26 @@ const Step5: NextPage<StepProps> = ({ id, setFormStep }) => {
           <Controller
             name="avatar"
             control={control}
-            render={({ field }) => <Input {...field} />}
+            render={({ field }) => (
+              <>
+                <label htmlFor="avatar">
+                  <UploadImage src={avatarPreview} alt="user avatar" />
+                </label>
+                <Input
+                  id="avatar"
+                  type="file"
+                  onChange={(event: any) => {
+                    field.onChange(event.target.files);
+                    const reader = new FileReader();
+                    reader.readAsDataURL(event.target.files[0]);
+                    reader.onloadend = () => {
+                      setAvatarPreview(reader.result as string);
+                    };
+                  }}
+                  style={{ display: "none" }}
+                />
+              </>
+            )}
           />
         </FieldSet>
         <FieldSet>
