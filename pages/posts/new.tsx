@@ -44,7 +44,7 @@ const NewPostPage: NextPage = () => {
   return (
     <Layout>
       <FormTitle>Создание объявления</FormTitle>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form>
         <FieldSet>
           <Controller
             name="title"
@@ -151,8 +151,13 @@ const NewPostPage: NextPage = () => {
             перемещено в архив
           </Caption_3>
         </FieldSet>
-        <Button variant="primary" text="Создать" type="submit" />
       </Form>
+      <Button
+        variant="bigPrimary"
+        text="Создать"
+        onClick={handleSubmit(onSubmit)}
+        margin="32px 0 0"
+      />
     </Layout>
   );
 };

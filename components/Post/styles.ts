@@ -112,3 +112,7 @@ export const StyledLink = styled.a`
     text-decoration: underline;
   }
 `;
+
+export const ActionIcon = styled.div`
+  cursor: pointer;
+`;
