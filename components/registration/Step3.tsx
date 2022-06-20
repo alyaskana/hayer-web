@@ -1,8 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import type { NextPage } from "next";
 import { Button, Title } from "components";
-import { SuccessWrap } from "./styles";
-import Picture from "@assets/illustrations/sasha.svg";
+import { SuccessWrap, Step3Image } from "./styles";
 import { Caption_1 } from "components/Typography/Typography";
 import { Colors } from "constants/Colors";
 
@@ -13,7 +12,7 @@ type StepProps = {
 const Step3: NextPage<StepProps> = ({ setFormStep }) => {
   return (
     <SuccessWrap>
-      <Picture />
+      <Step3Image src="/assets/images/sasha.png" alt="" />
       <Title mt="40px">Почта подтверждена!</Title>
       <Caption_1 margin="8px 8px 0" color={Colors.Main.Gray_2}>
         Осталось добавить немного информации о себе

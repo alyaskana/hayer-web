@@ -1,5 +1,11 @@
 import { FC, useState } from "react";
 import Link from "next/link";
+import { device } from "styles/breakpoints";
+import styled from "styled-components";
+import Image from "next/image";
+
+import { useAuth } from "hooks";
+
 import {
   Wrap,
   Logo,
@@ -10,18 +16,15 @@ import {
   MiniLogo,
   HeadTitle,
   FakeBurger,
+  BurgerPicture,
 } from "./styles";
+import { Title } from "components/Typography/Typography";
+import { Button } from "components";
 import BurgerIcon from "@assets/icons/burger.svg";
 import CloseIcon from "@assets/icons/close_menu.svg";
 import FavoriteIcon from "@assets/icons/favorite_active.svg";
 import ResponseIcon from "@assets/icons/response.svg";
 import UserIcon from "@assets/icons/user.svg";
-import BurgerPicture from "@assets/illustrations/login_picture.svg";
-import { Title } from "components/Typography/Typography";
-import { Button } from "components";
-import { useAuth } from "hooks";
-import { device } from "styles/breakpoints";
-import styled from "styled-components";
 
 type HeaderProps = {
   className?: string;
@@ -103,7 +106,10 @@ const MobileHeaderComponent: FC<HeaderProps> = ({
             </>
           ) : (
             <>
-              <BurgerPicture />
+              <BurgerPicture src="/assets/images/login_picture.png" alt="" />
+              <Title mt="28px">
+                Создай аккаунт — получи доступ ко всем функциям
+              </Title>
               <Button
                 variant="primaryBurger"
                 text="Зарегистрироваться"

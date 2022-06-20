@@ -75,6 +75,7 @@ const Step5: NextPage<StepProps> = ({ id, setFormStep }) => {
                   <UploadImage src={avatarPreview} alt="user avatar" />
                 </label>
                 <Input
+                  accept="image/*"
                   id="avatar"
                   type="file"
                   onChange={(event: any) => {

@@ -4,6 +4,7 @@ import { device } from "styles/breakpoints";
 import LogoIcon from "@assets/logo.svg";
 import MiniLogoIcon from "@assets/logo_symbol.svg";
 import { Subtitle } from "components/Typography/Typography";
+import Image from "next/image";
 
 export const Wrap = styled.div`
   width: 100%;
@@ -115,6 +116,7 @@ export const BurgerMenu = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 0 8px;
+  text-align: center;
 
   body {
     overflow: hidden;
@@ -143,4 +145,10 @@ export const HeadTitle = styled(Subtitle)`
   @media ${device.mobile} {
     display: block;
   }
+`;
+
+export const BurgerPicture = styled.img`
+  width: 265px;
+  height: 160px;
+  margin: 96px auto 0;
 `;
