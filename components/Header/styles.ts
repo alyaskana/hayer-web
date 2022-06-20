@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { device } from "styles/breakpoints";
 import LogoIcon from "@assets/logo.svg";
 import MiniLogoIcon from "@assets/logo_symbol.svg";
+import { Subtitle } from "components/Typography/Typography";
 
 export const Wrap = styled.div`
   width: 100%;
@@ -76,6 +77,14 @@ export const AuthLink = styled.a`
   }
 `;
 
+export const FakeBurger = styled.div`
+  width: 32px;
+  display: none;
+  @media ${device.mobile} {
+    display: block;
+  }
+`;
+
 export const Burger = styled.div`
   display: none;
   padding: 8px 20px;
@@ -122,5 +131,12 @@ export const MenuItemIcon = styled.div`
   svg {
     width: 24px;
     height: 24px;
+  }
+`;
+
+export const HeadTitle = styled(Subtitle)`
+  display: none;
+  @media ${device.mobile} {
+    display: block;
   }
 `;

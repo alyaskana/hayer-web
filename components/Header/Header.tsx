@@ -12,6 +12,8 @@ import {
   MenuItem,
   MenuItemIcon,
   MiniLogo,
+  HeadTitle,
+  FakeBurger,
 } from "./styles";
 import { Button } from "components";
 import { useAuth } from "hooks";
@@ -22,7 +24,7 @@ import FavoriteIcon from "@assets/icons/favorite_active.svg";
 import ResponseIcon from "@assets/icons/response.svg";
 import UserIcon from "@assets/icons/user.svg";
 import BurgerPicture from "@assets/icons/login_picture.svg";
-import { Subtitle, Title } from "components/Typography/Typography";
+import { Title } from "components/Typography/Typography";
 
 type HeaderProps = {
   className?: string;
@@ -79,8 +81,10 @@ export const Header: FC<HeaderProps> = ({
             </AuthLink>
           </AuthLinks>
         )}
-        {variant == "miniLogoTitle" && <Subtitle>{title}</Subtitle>}
-        {variant == "miniLogoBurger" || variant == "default" ? (
+        {variant == "miniLogoTitle" && <HeadTitle>{title}</HeadTitle>}
+        {variant == "miniLogoTitle" ? (
+          <FakeBurger />
+        ) : (
           <Burger>
             {menuOpen ? (
               <CloseIcon onClick={onMenuClick} />
@@ -88,8 +92,6 @@ export const Header: FC<HeaderProps> = ({
               <BurgerIcon onClick={onMenuClick} />
             )}
           </Burger>
-        ) : (
-          <div style={{ width: "32px" }}></div>
         )}
       </Wrap>
       {menuOpen && (
