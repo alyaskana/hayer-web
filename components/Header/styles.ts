@@ -38,8 +38,12 @@ export const Logo = styled(LogoIcon)`
 `;
 
 export const MiniLogo = styled(MiniLogoIcon)`
+  display: none;
   width: 32px;
   height: 32px;
+  @media ${device.mobile} {
+    display: block;
+  }
 `;
 
 export const Menu = styled.div`
