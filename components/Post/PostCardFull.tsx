@@ -11,7 +11,7 @@ import {
   Header,
   HeaderInfo,
   IconCategory,
-  PostWrap,
+  CardWrap,
   StyledText,
   UserAvatar,
   UserInfo,
@@ -40,7 +40,7 @@ export const PostCardFull: FC<PostCardFullProps> = ({ post, className }) => {
   };
   return (
     <Link href={`/posts/${post.id}`} passHref>
-      <PostWrap className={className}>
+      <CardWrap className={className}>
         <Header>
           <HeaderInfo>
             {new Date(post.deadline) < new Date() ? (
@@ -96,7 +96,7 @@ export const PostCardFull: FC<PostCardFullProps> = ({ post, className }) => {
             })}
           </Caption_2>
         </Footer>
-      </PostWrap>
+      </CardWrap>
     </Link>
   );
 };

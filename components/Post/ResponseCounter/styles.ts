@@ -1,14 +1,17 @@
 import { Colors } from "constants/Colors";
 import styled from "styled-components";
+import { CardWrap } from "../styles";
+import { device } from "styles/breakpoints";
 
-export const Wrap = styled.div`
-  background-color: ${Colors.Main.White};
-  border-radius: 20px;
-  padding: 20px;
+export const Wrap = styled(CardWrap)`
   height: 112px;
   margin-top: 8px;
   display: flex;
   align-items: baseline;
+  @media ${device.mobile} {
+    height: 96px;
+    padding: 12px 14px;
+  }
 `;
 
 export const Count = styled.div`

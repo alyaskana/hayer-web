@@ -6,7 +6,7 @@ import {
   Header,
   HeaderInfo,
   IconCategory,
-  PostWrap,
+  CardWrap,
   Counter,
   CounterIconWrap,
   NotificationCounter,
@@ -26,7 +26,7 @@ type PostCardProps = {
 export const PostCardReplyClient: FC<PostCardProps> = ({ post, className }) => {
   return (
     <Link href={`/posts/${post.id}`} passHref>
-      <PostWrap className={className}>
+      <CardWrap className={className}>
         <Header>
           <HeaderInfo>
             {new Date(post.deadline) < new Date() ? (
@@ -65,7 +65,7 @@ export const PostCardReplyClient: FC<PostCardProps> = ({ post, className }) => {
         </Header>
 
         <Title>{post.title}</Title>
-      </PostWrap>
+      </CardWrap>
     </Link>
   );
 };

@@ -1,3 +1,4 @@
+import { device } from "styles/breakpoints";
 import styled from "styled-components";
 import { Colors } from "constants/Colors";
 import { Tag } from "components";
@@ -5,11 +6,15 @@ import { Text } from "components/Typography/Typography";
 import { Avatar } from "components/Avatar/Avatar";
 import Link from "next/link";
 
-export const PostWrap = styled.div`
+export const CardWrap = styled.div`
   background-color: ${Colors.Main.White};
   padding: 20px;
   width: 100%;
   border-radius: 20px;
+
+  @media ${device.mobile} {
+    padding: 14px;
+  }
 `;
 
 export const Header = styled.div`
