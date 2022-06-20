@@ -1,9 +1,8 @@
-import { PrimaryButton } from "./../Button/styles";
 import { Colors } from "constants/Colors";
 import styled from "styled-components";
 import { device } from "styles/breakpoints";
 import LogoIcon from "@assets/logo.svg";
-import { Button } from "components/Button/Button";
+import MiniLogoIcon from "@assets/logo_symbol.svg";
 
 export const Wrap = styled.div`
   width: 100%;
@@ -20,7 +19,7 @@ export const Wrap = styled.div`
     background-color: ${Colors.Main.White_gray};
     margin-bottom: 0;
     border-radius: 0;
-    padding: 8px 8px 0;
+    padding: 8px;
     height: auto;
     position: fixed;
     top: 0;
@@ -35,6 +34,11 @@ export const Logo = styled(LogoIcon)`
     height: 32px;
     padding-left: 4px;
   }
+`;
+
+export const MiniLogo = styled(MiniLogoIcon)`
+  width: 32px;
+  height: 32px;
 `;
 
 export const Menu = styled.div`

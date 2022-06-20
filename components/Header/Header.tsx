@@ -11,6 +11,7 @@ import {
   BurgerMenu,
   MenuItem,
   MenuItemIcon,
+  MiniLogo,
 } from "./styles";
 import { Button } from "components";
 import { useAuth } from "hooks";
@@ -21,9 +22,19 @@ import FavoriteIcon from "@assets/icons/favorite_active.svg";
 import ResponseIcon from "@assets/icons/response.svg";
 import UserIcon from "@assets/icons/user.svg";
 import BurgerPicture from "@assets/icons/login_picture.svg";
-import { Title } from "components/Typography/Typography";
+import { Subtitle, Title } from "components/Typography/Typography";
 
-export const Header: FC<{ className?: string }> = ({ className }) => {
+type HeaderProps = {
+  className?: string;
+  title?: string;
+  variant?: "default" | "miniLogoBurger" | "miniLogoTitle";
+};
+
+export const Header: FC<HeaderProps> = ({
+  className,
+  title,
+  variant = "default",
+}) => {
   const { token } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -35,8 +46,8 @@ export const Header: FC<{ className?: string }> = ({ className }) => {
     <>
       <Wrap className={className}>
         <Link href={"/"} passHref>
-          <a style={{ height: "32px" }}>
-            <Logo />
+          <a style={{ lineHeight: "75%" }}>
+            {variant == "default" ? <Logo /> : <MiniLogo />}
           </a>
         </Link>
         {token && (
@@ -68,13 +79,18 @@ export const Header: FC<{ className?: string }> = ({ className }) => {
             </AuthLink>
           </AuthLinks>
         )}
-        <Burger>
-          {menuOpen ? (
-            <CloseIcon onClick={onMenuClick} />
-          ) : (
-            <BurgerIcon onClick={onMenuClick} />
-          )}
-        </Burger>
+        {variant == "miniLogoTitle" && <Subtitle>{title}</Subtitle>}
+        {variant == "miniLogoBurger" || variant == "default" ? (
+          <Burger>
+            {menuOpen ? (
+              <CloseIcon onClick={onMenuClick} />
+            ) : (
+              <BurgerIcon onClick={onMenuClick} />
+            )}
+          </Burger>
+        ) : (
+          <div style={{ width: "32px" }}></div>
+        )}
       </Wrap>
       {menuOpen && (
         <BurgerMenu>

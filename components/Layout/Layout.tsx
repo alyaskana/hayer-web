@@ -1,12 +1,18 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import { Footer } from "components";
 import { Header } from "components";
 import { Main, Wrap } from "./styles";
 
-export const Layout: FC = ({ children }) => {
+type LayoutProps = {
+  children: ReactNode;
+  title?: string;
+  headerVariant?: "default" | "miniLogoBurger" | "miniLogoTitle";
+};
+
+export const Layout: FC<LayoutProps> = ({ children, title, headerVariant }) => {
   return (
     <Wrap>
-      <Header mb="32px" />
+      <Header variant={headerVariant} title={title} mb="32px" />
       <Main>{children}</Main>
       {/* <Footer /> */}
     </Wrap>

@@ -19,7 +19,7 @@ const LoginPage: NextPage = () => {
   };
 
   return (
-    <Layout>
+    <Layout title="Вход" headerVariant="miniLogoTitle">
       <FormTitle>Вход</FormTitle>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FieldSet>
