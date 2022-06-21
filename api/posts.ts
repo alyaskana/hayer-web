@@ -15,6 +15,14 @@ class PostsFetcher extends API {
     return super.get<R>({ path: "posts" });
   }
 
+  latestResponses<R = Post[]>() {
+    return super.get<R>({ path: "posts/latest_responses" });
+  }
+
+  myLatestResponses<R = Post[]>() {
+    return super.get<R>({ path: "posts/my_latest_responses" });
+  }
+
   getById<R = Post>(id: string | number) {
     return super.get<R>({ path: `posts/${id}` });
   }

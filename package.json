@@ -20,6 +20,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-hook-form": "^7.28.1",
+    "react-loader-spinner": "^5.1.5",
     "react-timer-hook": "^3.0.5",
     "styled-components": "^5.3.5",
     "styled-system": "^5.1.5"
@@ -31,6 +32,7 @@
     "@types/rails__actioncable": "^6.1.6",
     "@types/react": "17.0.41",
     "@types/styled-components": "^5.1.24",
+    "@types/styled-system": "^5.1.15",
     "babel-plugin-styled-components": "^2.0.6",
     "eslint": "8.11.0",
     "eslint-config-next": "12.1.0",
