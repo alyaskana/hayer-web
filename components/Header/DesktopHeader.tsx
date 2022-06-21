@@ -4,7 +4,7 @@ import { Wrap, Menu, StyledLink, AuthLinks, AuthLink, Logo } from "./styles";
 import { Headline } from "components";
 import { Button } from "components";
 
-import { useAuth } from "hooks";
+import { useAuth, useNewResponses } from "hooks";
 import styled from "styled-components";
 import { device } from "styles/breakpoints";
 
@@ -12,6 +12,8 @@ export const DesktopHeaderComponent: FC<{ className?: string }> = ({
   className,
 }) => {
   const { token } = useAuth();
+  const { hasNewResponses } = useNewResponses();
+
   return (
     <Wrap className={className}>
       <Link href={"/"} passHref>
@@ -24,7 +26,7 @@ export const DesktopHeaderComponent: FC<{ className?: string }> = ({
           <StyledLink href={"/favorites"}>
             <Headline color="inherit">Закладки</Headline>
           </StyledLink>
-          <StyledLink href={"/responses"}>
+          <StyledLink href={"/responses"} hasNotification={hasNewResponses}>
             <Headline color="inherit">Отклики</Headline>
           </StyledLink>
           <StyledLink href={"/profile"}>

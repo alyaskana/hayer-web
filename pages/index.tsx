@@ -8,14 +8,12 @@ import { Layout } from "components";
 import { PostCardList } from "components";
 import { Filters } from "components/Filters/Filters";
 import { Post } from "types";
-import { useActionCable } from "hooks";
 
 type PageProps = NextPage<
   InferGetServerSidePropsType<typeof getServerSideProps>
 >;
 
 const PostsPage: PageProps = ({ posts: initialPosts }) => {
-  const { cable } = useActionCable();
   const [posts, setPosts] = useState<Post[]>(initialPosts);
   const [filteredPosts, setFilteredPosts] = useState<Post[]>(posts);
   const [hasNewPosts, setHasNewPosts] = useState(false);
@@ -34,22 +32,6 @@ const PostsPage: PageProps = ({ posts: initialPosts }) => {
 
     setFilteredPosts(newPosts);
   }, [activeFilters, posts]);
-
-  useEffect(() => {
-    const handleReceivedMessage = () => {
-      setHasNewPosts(true);
-    };
-
-    const newSubscription = cable?.subscriptions.create("FeedChannel", {
-      received: () => {
-        handleReceivedMessage();
-      },
-    });
-
-    return () => {
-      newSubscription?.unsubscribe();
-    };
-  }, [cable]);
 
   const handleUpdateFeed = () => {
     postsFetcher.getAll().then(({ data }) => {

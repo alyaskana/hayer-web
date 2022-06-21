@@ -1,10 +1,12 @@
+import { FC } from "react";
 import { Colors } from "constants/Colors";
 import styled from "styled-components";
 import { device } from "styles/breakpoints";
 import LogoIcon from "@assets/logo.svg";
 import MiniLogoIcon from "@assets/logo_symbol.svg";
 import { Subtitle } from "components/Typography/Typography";
-import Image from "next/image";
+
+import { InnerLink } from "components/links/InnerLink";
 
 export const Wrap = styled.div`
   width: 100%;
@@ -56,12 +58,29 @@ export const Menu = styled.div`
   }
 `;
 
-export const StyledLink = styled.a`
+export const StyledLink: FC<{
+  href: string;
+  hasNotification?: boolean;
+}> = styled(InnerLink)`
   margin: 0 16px;
   color: ${Colors.Main.Gray_2};
   transition: color 0.2s;
+  position: relative;
   :hover {
     color: ${Colors.Main.Gray_3};
+  }
+
+  &:after {
+    content: "";
+    display: ${(props) => (props.hasNotification ? "block" : "none")};
+    display: "block";
+    position: absolute;
+    right: -10px;
+    top: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 20px;
+    background: ${Colors.Accent.Red}};
   }
 `;
 
@@ -73,7 +92,7 @@ export const AuthLinks = styled.div`
   }
 `;
 
-export const AuthLink = styled.a`
+export const AuthLink = styled(InnerLink)`
   margin-left: 32px;
   color: ${Colors.Main.Gray_2};
   transition: color 0.2s;
