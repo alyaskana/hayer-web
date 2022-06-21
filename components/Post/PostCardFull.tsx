@@ -21,6 +21,7 @@ import {
   ActionIcon,
 } from "./styles";
 import { useAuth } from "hooks";
+import { postsFetcher } from "api";
 
 import ClosedIcon from "@assets/icons/closed.svg";
 import WorkActiveIcon from "@assets/icons/work_active.svg";
@@ -39,10 +40,10 @@ type PostCardFullProps = {
 export const PostCardFull: FC<PostCardFullProps> = ({ post, className }) => {
   const { user } = useAuth();
   const router = useRouter();
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(post.is_favorited);
 
   const onSaveClick = () => {
-    setIsFavorite(!isFavorite);
+    postsFetcher.favorite(post.id).then(() => setIsFavorite(!isFavorite));
   };
 
   return (

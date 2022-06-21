@@ -23,6 +23,14 @@ class PostsFetcher extends API {
     return super.get<R>({ path: "posts/my_latest_responses" });
   }
 
+  favoritePosts<R = Post[]>() {
+    return super.get<R>({ path: "posts/favorites" });
+  }
+
+  favorite<R = Post>(id: number) {
+    return super.post<R>({ path: `posts/${id}/favorite` });
+  }
+
   getById<R = Post>(id: string | number) {
     return super.get<R>({ path: `posts/${id}` });
   }
