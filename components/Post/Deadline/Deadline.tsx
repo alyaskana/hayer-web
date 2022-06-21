@@ -3,7 +3,7 @@ import { differenceInCalendarDays } from "date-fns";
 
 import { Colors } from "constants/Colors";
 import { Title, Headline } from "components";
-import { pluralize } from "utils";
+import { pluralizeWithCount } from "utils";
 
 import { Icon, Wrap } from "./styles";
 
@@ -12,7 +12,7 @@ import ClosedIcon from "@assets/icons/closed.svg";
 
 export const Deadline: FC<{ date: string }> = ({ date }) => {
   if (new Date(date) >= new Date()) {
-    const deadline = pluralize(
+    const deadline = pluralizeWithCount(
       differenceInCalendarDays(new Date(date), new Date()),
       ["день", "дня", "дней"]
     );

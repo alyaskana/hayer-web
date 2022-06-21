@@ -11,7 +11,6 @@ const PostPage = () => {
   const router = useRouter();
   const { id } = router.query;
   const [post, setPost] = useState<Post>();
-  console.log(post);
 
   useEffect(() => {
     if (!!id) {

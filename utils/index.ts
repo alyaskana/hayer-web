@@ -1,1 +1,1 @@
-export { pluralize } from "./pluralize";
+export { pluralize, pluralizeWithCount } from "./pluralize";

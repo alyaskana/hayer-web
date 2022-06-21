@@ -11,7 +11,7 @@ import { device } from "styles/breakpoints";
 export const DesktopHeaderComponent: FC<{ className?: string }> = ({
   className,
 }) => {
-  const { token } = useAuth();
+  const { token, user } = useAuth();
   const { hasNewResponses } = useNewResponses();
 
   return (
@@ -21,7 +21,7 @@ export const DesktopHeaderComponent: FC<{ className?: string }> = ({
           <Logo />
         </a>
       </Link>
-      {token && (
+      {token && user && (
         <Menu>
           <StyledLink href={"/favorites"}>
             <Headline color="inherit">Закладки</Headline>
@@ -29,7 +29,7 @@ export const DesktopHeaderComponent: FC<{ className?: string }> = ({
           <StyledLink href={"/responses"} hasNotification={hasNewResponses}>
             <Headline color="inherit">Отклики</Headline>
           </StyledLink>
-          <StyledLink href={"/profile"}>
+          <StyledLink href={`/users/${user.id}`}>
             <Headline color="inherit"> Профиль</Headline>
           </StyledLink>
         </Menu>

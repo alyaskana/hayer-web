@@ -3,7 +3,7 @@ import { Image } from "./styles";
 
 type AvatarProps = {
   src: string | null | undefined;
-  size?: number;
+  size?: number | string;
   className?: string;
 };
 

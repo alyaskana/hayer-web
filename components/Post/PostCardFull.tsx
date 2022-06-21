@@ -96,7 +96,7 @@ export const PostCardFull: FC<PostCardFullProps> = ({ post, className }) => {
         )}
 
         <Footer>
-          <Link href={`/user/${post.user.id}`} passHref>
+          <Link href={`/users/${post.user.id}`} passHref>
             <a>
               <UserInfo>
                 <UserAvatar src={post.user.avatar} />

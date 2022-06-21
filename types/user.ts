@@ -1,3 +1,4 @@
+import { Post } from "./post";
 import { Response } from "./response";
 
 export type User = {
@@ -18,6 +19,7 @@ export type User = {
   edu_program: string | null;
   course: string | null;
   telegram: string;
+  posts: Post[];
 };
 
 export type UserShort = Pick<

@@ -73,7 +73,9 @@ export const SecondaryButton = styled(DefaultButton)`
   color: ${(props) => (props.danger ? Colors.Accent.Red : Colors.Main.Primary)};
 
   svg {
-    fill: ${Colors.Main.Primary};
+    path {
+      fill: ${Colors.Main.Primary};
+    }
   }
 
   :hover {

@@ -37,7 +37,7 @@ const MobileHeaderComponent: FC<HeaderProps> = ({
   title,
   variant,
 }) => {
-  const { token } = useAuth();
+  const { token, user } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const onMenuClick = () => {
@@ -71,7 +71,7 @@ const MobileHeaderComponent: FC<HeaderProps> = ({
       </Wrap>
       {menuOpen && (
         <BurgerMenu>
-          {token ? (
+          {token && user ? (
             <>
               <Link href="/favorites" passHref>
                 <MenuItem>
@@ -89,7 +89,7 @@ const MobileHeaderComponent: FC<HeaderProps> = ({
                   <Title>Отклики</Title>
                 </MenuItem>
               </Link>
-              <Link href="/profile" passHref>
+              <Link href={`/users/${user.id}`} passHref>
                 <MenuItem>
                   <MenuItemIcon>
                     <UserIcon />

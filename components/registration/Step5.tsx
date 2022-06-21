@@ -39,10 +39,10 @@ const Step5: NextPage<StepProps> = ({ id, setFormStep }) => {
 
   const onSubmit: SubmitHandler<FormInputs> = (data) => {
     const formData = new FormData();
-    Object.entries(data).forEach(([key, value], index) => {
-      key == "avatar"
-        ? formData.append(key, value[0])
-        : formData.append(key, value);
+    Object.entries(data).forEach(([key, value]) => {
+      if (value) {
+        formData.append(key, value);
+      }
     });
     authFetcher
       .update(id, formData)
@@ -79,7 +79,7 @@ const Step5: NextPage<StepProps> = ({ id, setFormStep }) => {
                   id="avatar"
                   type="file"
                   onChange={(event: any) => {
-                    field.onChange(event.target.files);
+                    field.onChange(event.target.files[0]);
                     const reader = new FileReader();
                     reader.readAsDataURL(event.target.files[0]);
                     reader.onloadend = () => {

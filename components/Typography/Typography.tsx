@@ -1,4 +1,3 @@
-import { FC } from "react";
 import styled from "styled-components";
 import { Colors } from "../../constants/Colors";
 import { space } from "styled-system";
@@ -6,16 +5,6 @@ import { space } from "styled-system";
 const Base = styled.div`
   ${space};
 `;
-
-// const TextComponent: FC<{ color?: string }> = ({
-//   children,
-//   color,
-//   ...props
-// }) => (
-//   <Base color={color} {...props}>
-//     {children}
-//   </Base>
-// );
 
 export const Title = styled(Base)`
   font-family: "Suisse Intl Book";
