@@ -64,7 +64,7 @@ export const PostCardReplyClient: FC<PostCardProps> = ({ post, className }) => {
           </div>
         </Header>
 
-        <Title>{post.title}</Title>
+        <Title mt="16px">{post.title}</Title>
       </CardWrap>
     </Link>
   );

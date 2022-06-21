@@ -1,7 +1,7 @@
 import { Post } from "types";
 import { FC } from "react";
 import { PostCard } from "components";
-import { StyledPostCard, ListWrap } from "./styles";
+import { ListWrap } from "./styles";
 
 export const PostCardList: FC<{ posts: Post[] }> = ({ posts }) => {
   return (

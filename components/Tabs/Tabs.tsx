@@ -11,5 +11,7 @@ export const Tabs: FC<TabsType> = styled.div<TabsType>`
   border-radius: 16px;
   height: 49px;
   display: flex;
+  max-width: 343px;
+  margin: 0 auto;
   ${space}
 `;

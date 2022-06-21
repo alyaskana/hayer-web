@@ -29,7 +29,7 @@ export const MyResponsesTab: FC = () => {
   if (posts.length === 0) {
     return (
       <EmptyTabContent iconPath="/assets/images/wave.png">
-        Откликайся на объявления других пользователь
+        Откликайся на объявления других пользователей
       </EmptyTabContent>
     );
   }

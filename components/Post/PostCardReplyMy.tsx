@@ -70,7 +70,9 @@ export const PostCardReplyMy: FC<PostCardProps> = ({ post, className }) => {
           </Counter>
         </Header>
 
-        <Title mb="12px">{post.title}</Title>
+        <Title mt="16px" mb="12px">
+          {post.title}
+        </Title>
 
         <Footer>
           <UserInfo>
