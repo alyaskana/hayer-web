@@ -52,9 +52,11 @@ export const PostCardReplyClient: FC<PostCardProps> = ({ post, className }) => {
             <Caption_2 ml="4px">{post.format}</Caption_2>
           </HeaderInfo>
           <div style={{ display: "flex" }}>
-            <NotificationCounter>
-              <Headline>+ {1}</Headline>
-            </NotificationCounter>
+            {post.unread_responses_count > 0 && (
+              <NotificationCounter>
+                <Headline>+ {post.unread_responses_count}</Headline>
+              </NotificationCounter>
+            )}
             <Counter>
               <CounterIconWrap>
                 <ResponseIcon />

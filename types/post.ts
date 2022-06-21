@@ -17,4 +17,5 @@ export type Post = {
   created_at: string;
   updated_at: string;
   is_favorited: boolean;
+  unread_responses_count: number;
 };

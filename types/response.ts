@@ -5,5 +5,6 @@ export type Response = {
   user: UserShort;
   description: string;
   link: string;
+  is_read: boolean;
   created_at: string;
 };
