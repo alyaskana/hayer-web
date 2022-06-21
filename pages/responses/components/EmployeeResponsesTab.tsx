@@ -6,6 +6,7 @@ import { postsFetcher } from "api";
 import { Post } from "types";
 
 import { CardList } from "./styles";
+import Link from "next/link";
 
 export const EmployeeResponsesTab: FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -37,7 +38,11 @@ export const EmployeeResponsesTab: FC = () => {
   return (
     <CardList>
       {posts.map((post) => (
-        <PostCardReplyClient post={post} key={post.id} />
+        <Link href={`/post/${post.id}`} passHref key={post.id}>
+          <a>
+            <PostCardReplyClient post={post} key={post.id} />
+          </a>
+        </Link>
       ))}
     </CardList>
   );

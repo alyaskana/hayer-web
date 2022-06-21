@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Colors } from "constants/Colors";
 
 type TabWrapperType = HTMLProps<HTMLDivElement> & { active: boolean };
+
 export const TabWrapper: FC<TabWrapperType> = styled.div<TabWrapperType>`
   flex: 1;
   background: ${(props) =>
@@ -12,6 +13,7 @@ export const TabWrapper: FC<TabWrapperType> = styled.div<TabWrapperType>`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `;
 
 export const TabContentWrapper: FC<HTMLProps<HTMLDivElement>> = styled.div`
