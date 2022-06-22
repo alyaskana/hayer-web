@@ -68,7 +68,7 @@ export const PrimaryBurgerButton = styled(DefaultButton)`
 export const SecondaryButton = styled(DefaultButton)`
   height: 48px;
   padding: 16px;
-  min-width: 340px;
+  /* min-width: 340px; */
   background-color: ${Colors.Main.White_gray};
   color: ${(props) => (props.danger ? Colors.Accent.Red : Colors.Main.Primary)};
 

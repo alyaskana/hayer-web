@@ -5,12 +5,14 @@ import { Tag } from "components";
 import { Text } from "components/Typography/Typography";
 import { Avatar } from "components/Avatar/Avatar";
 import Link from "next/link";
+import { space } from "styled-system";
 
 export const CardWrap = styled.div`
   background-color: ${Colors.Main.White};
   padding: 20px;
   width: 100%;
   border-radius: 20px;
+  ${space}
 
   @media ${device.mobile} {
     padding: 14px;
