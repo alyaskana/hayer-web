@@ -4,7 +4,7 @@ import { device } from "styles/breakpoints";
 import styled from "styled-components";
 import Image from "next/image";
 
-import { useAuth } from "hooks";
+import { useAuth, useNewResponses } from "hooks";
 
 import {
   Wrap,
@@ -38,6 +38,7 @@ const MobileHeaderComponent: FC<HeaderProps> = ({
   variant,
 }) => {
   const { token, user } = useAuth();
+  const { hasNewResponses } = useNewResponses();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const onMenuClick = () => {
@@ -60,7 +61,7 @@ const MobileHeaderComponent: FC<HeaderProps> = ({
         {variant == "miniLogoTitle" ? (
           <FakeBurger />
         ) : (
-          <Burger>
+          <Burger hasNotification={hasNewResponses}>
             {menuOpen ? (
               <CloseIcon onClick={onMenuClick} />
             ) : (
@@ -86,7 +87,7 @@ const MobileHeaderComponent: FC<HeaderProps> = ({
                   <MenuItemIcon>
                     <ResponseIcon />
                   </MenuItemIcon>
-                  <Title>Отклики</Title>
+                  <Title hasNotification={hasNewResponses}>Отклики</Title>
                 </MenuItem>
               </Link>
               <Link href={`/users/${user.id}`} passHref>

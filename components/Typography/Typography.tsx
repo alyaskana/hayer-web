@@ -12,6 +12,20 @@ export const Title = styled(Base)`
   line-height: 24px;
   letter-spacing: -0.015em;
   color: ${(props) => props.color || Colors.Main.Gray_3};
+  position: relative;
+
+  &:after {
+    content: "";
+    display: ${(props) => (props.hasNotification ? "block" : "none")};
+    display: "block";
+    position: absolute;
+    right: -10px;
+    top: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 20px;
+    background: ${Colors.Accent.Red}};
+  }
 `;
 
 export const Headline = styled(Base)`

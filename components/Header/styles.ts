@@ -115,13 +115,31 @@ export const Burger = styled.div`
   background-color: ${Colors.Main.Gray_1};
   border-radius: 90px;
   height: 40px;
+  position: relative;
+
   svg {
     width: 24px;
     height: 24px;
   }
+
   @media ${device.mobile} {
     display: block;
+
+    &:after {
+      content: "";
+      display: ${(props) => (props.hasNotification ? "block" : "none")};
+      display: "block";
+      position: absolute;
+      right: 4px;
+      top: 1px;
+      width: 8px;
+      height: 8px;
+      border-radius: 20px;
+      background: ${Colors.Accent.Red}};
+    }
   }
+
+
 `;
 
 export const BurgerMenu = styled.div`
