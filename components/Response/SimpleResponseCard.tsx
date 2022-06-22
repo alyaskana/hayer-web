@@ -1,15 +1,14 @@
-import { Dispatch, FC, SetStateAction } from "react";
+import { FC } from "react";
 import { formatRelative } from "date-fns";
 import russianLocale from "date-fns/locale/ru";
-import { Button, Caption_1, Caption_2, Layout, Text, Title } from "components";
-import { CardWrap, UserInfo, Footer, UserAvatar } from "components/Post/styles";
+import { Button, Caption_1, Caption_2, Text } from "components";
+import { CardWrap, UserInfo, UserAvatar } from "components/Post/styles";
 import { Colors } from "constants/Colors";
-import { ButtonsWrap, ResponseHeader } from "./styles";
+import { ResponseHeader } from "./styles";
 import { Response } from "types";
 import { LinkRow, Link } from "components/User/styles";
 import { ExternalLink } from "components/links/ExternalLink";
 import LinkIcon from "@assets/icons/link.svg";
-import { responsesFetcher } from "api/responses";
 
 import TgIcon from "@assets/icons/tg.svg";
 
