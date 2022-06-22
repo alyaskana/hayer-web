@@ -11,20 +11,11 @@ import { ExternalLink } from "components/links/ExternalLink";
 import LinkIcon from "@assets/icons/link.svg";
 import { responsesFetcher } from "api/responses";
 
-export const ResponseCard: FC<{
-  response: Response;
-  setIsEdit: Dispatch<SetStateAction<boolean>>;
-  setMyResponse: Dispatch<SetStateAction<Response | undefined>>;
-  resetForm: any;
-  fetchPosts: any;
-}> = ({ response, setIsEdit, setMyResponse, resetForm, fetchPosts }) => {
-  const onDelete = () => {
-    responsesFetcher.destroy(response.id);
-    setMyResponse(undefined);
-    resetForm();
-    fetchPosts();
-  };
+import TgIcon from "@assets/icons/tg.svg";
 
+export const SimpleResponseCard: FC<{
+  response: Response;
+}> = ({ response }) => {
   return (
     <CardWrap mt="8px">
       <ResponseHeader>
@@ -49,19 +40,14 @@ export const ResponseCard: FC<{
           </ExternalLink>
         </LinkRow>
       )}
-      <ButtonsWrap>
-        <Button
-          variant="secondary"
-          text="Удалить отклик"
-          onClick={onDelete}
-          danger
-        />
-        <Button
-          variant="secondary"
-          text="Редактировать"
-          onClick={() => setIsEdit(true)}
-        />
-      </ButtonsWrap>
+      <Button
+        margin="8px 0 0"
+        variant="secondary"
+        text="Написать"
+        href={response.user.link!}
+        icon={<TgIcon />}
+        style={{ marginTop: "16px" }}
+      />
     </CardWrap>
   );
 };

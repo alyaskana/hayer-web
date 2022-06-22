@@ -24,5 +24,5 @@ export type User = {
 
 export type UserShort = Pick<
   User,
-  "id" | "first_name" | "last_name" | "avatar"
+  "id" | "first_name" | "last_name" | "avatar" | "link"
 >;

@@ -12,6 +12,7 @@ import { ResponseCounter } from "components/Post/ResponseCounter/ResponseCounter
 import { FieldSet, Form, Input, Label, TextArea } from "components/form";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { ResponseCard } from "components/Response/ResponseCard";
+import { SimpleResponseCard } from "components/Response/SimpleResponseCard";
 
 type FormInputs = {
   post_id: number;
@@ -65,68 +66,13 @@ const PostPage = () => {
 
   if (!post) return null;
 
-  return (
-    <Layout>
-      <PostCardFull post={post} />
-      <Deadline date={post.deadline} />
-      <ResponseCounter count={post.responses.length} />
-      {myResponse ? (
-        isEdit ? (
-          <>
-            <Form mt="8px">
-              <FieldSet mb="24px">
-                <Title>Редактирование</Title>
-              </FieldSet>
-              <FieldSet mb="24px">
-                <Label>
-                  <Caption_2>Комментарий</Caption_2>
-                </Label>
-                <Controller
-                  name="description"
-                  control={control}
-                  render={({ field }) => (
-                    <TextArea
-                      {...field}
-                      placeholder="Расскажи как и когда сможешь выполнить заказ"
-                      defaultValue={myResponse.description}
-                    />
-                  )}
-                />
-              </FieldSet>
-              <Label>
-                <Caption_2>
-                  Ссылка на схожую работу, картинку или что-то еще
-                </Caption_2>
-              </Label>
-              <Controller
-                name="link"
-                control={control}
-                render={({ field }) => (
-                  <Input {...field} defaultValue={myResponse.link} />
-                )}
-              />
-            </Form>
-            <Button
-              margin="8px 0 0"
-              variant="bigPrimary"
-              text="Сохранить"
-              onClick={handleSubmit(onEditResponse)}
-            />
-          </>
-        ) : (
-          <ResponseCard
-            response={myResponse}
-            setIsEdit={setIsEdit}
-            setMyResponse={setMyResponse}
-            resetForm={reset}
-            fetchPosts={fetchPosts}
-          />
-        )
-      ) : (
+  const MyResponse = () => {
+    if (isEdit) {
+      return (
         <>
           <Form mt="8px">
             <FieldSet mb="24px">
-              <Title>Оставить отклик</Title>
+              <Title>Редактирование</Title>
             </FieldSet>
             <FieldSet mb="24px">
               <Label>
@@ -137,8 +83,9 @@ const PostPage = () => {
                 control={control}
                 render={({ field }) => (
                   <TextArea
-                    placeholder="Расскажи как и когда сможешь выполнить заказ"
                     {...field}
+                    placeholder="Расскажи как и когда сможешь выполнить заказ"
+                    defaultValue={myResponse.description}
                   />
                 )}
               />
@@ -151,17 +98,93 @@ const PostPage = () => {
             <Controller
               name="link"
               control={control}
-              render={({ field }) => <Input {...field} />}
+              render={({ field }) => (
+                <Input {...field} defaultValue={myResponse.link} />
+              )}
             />
           </Form>
           <Button
             margin="8px 0 0"
             variant="bigPrimary"
-            text="Откликнуться"
-            onClick={handleSubmit(onCreateResponse)}
+            text="Сохранить"
+            onClick={handleSubmit(onEditResponse)}
           />
         </>
-      )}
+      );
+    }
+    return (
+      <ResponseCard
+        response={myResponse}
+        setIsEdit={setIsEdit}
+        setMyResponse={setMyResponse}
+        resetForm={reset}
+        fetchPosts={fetchPosts}
+      />
+    );
+  };
+
+  const CreateResponse = () => {
+    if (post.user.id == user?.id) return <></>;
+
+    return (
+      <>
+        <Form mt="8px">
+          <FieldSet mb="24px">
+            <Title>Оставить отклик</Title>
+          </FieldSet>
+          <FieldSet mb="24px">
+            <Label>
+              <Caption_2>Комментарий</Caption_2>
+            </Label>
+            <Controller
+              name="description"
+              control={control}
+              render={({ field }) => (
+                <TextArea
+                  placeholder="Расскажи как и когда сможешь выполнить заказ"
+                  {...field}
+                />
+              )}
+            />
+          </FieldSet>
+          <Label>
+            <Caption_2>
+              Ссылка на схожую работу, картинку или что-то еще
+            </Caption_2>
+          </Label>
+          <Controller
+            name="link"
+            control={control}
+            render={({ field }) => <Input {...field} />}
+          />
+        </Form>
+        <Button
+          margin="8px 0 0"
+          variant="bigPrimary"
+          text="Откликнуться"
+          onClick={handleSubmit(onCreateResponse)}
+        />
+      </>
+    );
+  };
+
+  const ResponseList = () => {
+    return (
+      <div>
+        {post.responses.map((response) => {
+          return <SimpleResponseCard key={response.id} response={response} />;
+        })}
+      </div>
+    );
+  };
+
+  return (
+    <Layout>
+      <PostCardFull post={post} />
+      <Deadline date={post.deadline} />
+      <ResponseCounter count={post.responses.length} />
+      {post.user.id == user?.id && <ResponseList />}
+      {myResponse ? <MyResponse /> : <CreateResponse />}
     </Layout>
   );
 };
